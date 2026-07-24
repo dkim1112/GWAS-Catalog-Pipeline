@@ -1,0 +1,4 @@
+﻿category,our_name,note
+mechanism,"plasma proteome pQTL (UKB-PPP, Sun 2023)","2,923 단백질. GWAS Catalog 미등재 -> UKB-PPP 포털/Synapse에서 직접. European ~34,557."
+mechanism,"plasma proteome pQTL (deCODE, Ferkingstad 2021)","~4,900 단백질. deCODE 포털에서 직접. Icelandic(European)."
+mechanism,"NMR metabolites (Nightingale, Julkunen 2023 / Karjalainen 2024)",249 대사체. UKB-RAP 또는 Nature 논문 sumstats. 대규모 meta는 다인구 -> EUR subset 필요.

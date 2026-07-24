@@ -1,0 +1,227 @@
+﻿paper,trait,category,resolved_query,european_gwas
+Udler 2018,Fasting glucose,recovered,disease:Fasting glucose,6
+Udler 2018,Fasting insulin,recovered,disease:Fasting insulin,5
+Udler 2018,HbA1c,recovered,disease:Glycated hemoglobin levels,8
+Udler 2018,Two-hour glucose,recovered,disease:Two-hour glucose,2
+Udler 2018,HOMA-B,recovered,efo:HOMA-B,5
+Udler 2018,HOMA-IR,recovered,efo:HOMA-IR,3
+Udler 2018,Proinsulin,recovered,disease:Proinsulin levels,1
+Udler 2018,Corrected insulin response,recovered,disease:Corrected insulin response,1
+Udler 2018,Insulin sensitivity index,recovered,disease:Insulin sensitivity index,1
+Udler 2018,Disposition index,label_mismatch,disease:insulin disposition index,2
+Udler 2018,Modified Stumvoll ISI,recovered,disease:Modified Stumvoll insulin sensitivity index,2
+Udler 2018,Incr30/Ins30,recovered(broad),efo:insulin measurement,19
+Udler 2018,BMI,recovered,efo:body mass index,55
+Udler 2018,Height,recovered,efo:body height,38
+Udler 2018,Waist circumference,recovered,efo:waist circumference,14
+Udler 2018,Waist-hip ratio,recovered,efo:waist-hip ratio,36
+Udler 2018,Body fat percentage,recovered,efo:body fat percentage,55
+Udler 2018,Birth weight,recovered,efo:birth weight,40
+Udler 2018,Heart rate,recovered,efo:heart rate,36
+Udler 2018,Visceral adipose tissue volume,recovered,disease:Visceral adipose tissue,4
+Udler 2018,HDL cholesterol,recovered,efo:high density lipoprotein cholesterol measurement,43
+Udler 2018,LDL cholesterol,recovered,efo:low density lipoprotein cholesterol measurement,45
+Udler 2018,Total cholesterol,recovered,efo:total cholesterol measurement,61
+Udler 2018,Triglycerides,recovered,efo:triglyceride measurement,46
+Udler 2018,Leptin,recovered,efo:leptin measurement,19
+Udler 2018,Adiponectin,recovered,efo:adiponectin measurement,20
+Udler 2018,Urate,recovered,efo:urate measurement,60
+Udler 2018,Omega-3 fatty acids,recovered,disease:Omega-3 fatty acid levels,11
+Udler 2018,Omega-6 fatty acids,recovered,disease:Omega-6 fatty acid levels,11
+Suzuki 2024,Fasting glucose,recovered,disease:Fasting glucose,6
+Suzuki 2024,Two-hour glucose,recovered,disease:Two-hour glucose,2
+Suzuki 2024,HbA1c,recovered,disease:Glycated hemoglobin levels,8
+Suzuki 2024,Proinsulin,recovered,disease:Proinsulin levels,1
+Suzuki 2024,Fasting insulin,recovered,disease:Fasting insulin,5
+Suzuki 2024,Modified Stumvoll ISI,recovered,disease:Modified Stumvoll insulin sensitivity index,2
+Suzuki 2024,Insulin fold change,label_mismatch(broad),efo:insulin measurement,19
+Suzuki 2024,Systolic blood pressure,recovered,efo:systolic blood pressure,37
+Suzuki 2024,Diastolic blood pressure,recovered,efo:diastolic blood pressure,40
+Suzuki 2024,Pulse pressure,recovered,efo:pulse pressure measurement,27
+Suzuki 2024,Birth weight,recovered,efo:birth weight,40
+Suzuki 2024,Basal metabolic rate,label_mismatch,disease:Basal metabolic rate,2
+Suzuki 2024,BMI,recovered,efo:body mass index,55
+Suzuki 2024,Waist-hip ratio,recovered,efo:waist-hip ratio,36
+Suzuki 2024,Waist circumference,recovered,efo:waist circumference,14
+Suzuki 2024,Hip circumference,recovered,efo:hip circumference,17
+Suzuki 2024,Body fat percentage,recovered,efo:body fat percentage,55
+Suzuki 2024,Trunk fat percentage,label_mismatch(broad),efo:body fat distribution,34
+Suzuki 2024,Gluteofemoral adipose tissue volume,label_mismatch,efo:gluteofemoral adipose tissue measurement,4
+Suzuki 2024,Visceral adipose tissue volume,recovered,disease:Visceral adipose tissue,4
+Suzuki 2024,Abdominal subcutaneous adipose tissue volume,recovered,disease:Abdominal subcutaneous adipose tissue volume,2
+Suzuki 2024,Alkaline phosphatase,recovered,disease:Alkaline phosphatase levels,2
+Suzuki 2024,Gamma-glutamyltransferase,recovered,disease:Gamma glutamyl transferase levels,6
+Suzuki 2024,Total bilirubin,label_mismatch,disease:Bilirubin levels,6
+Suzuki 2024,Direct bilirubin,recovered,disease:Direct bilirubin levels,1
+Suzuki 2024,Aspartate aminotransferase,recovered,disease:Aspartate aminotransferase levels,6
+Suzuki 2024,Alanine aminotransferase,recovered,disease:Alanine aminotransferase levels,7
+Suzuki 2024,Liver fat percentage,label_mismatch,efo:liver fat measurement,12
+Suzuki 2024,Triglycerides,recovered,efo:triglyceride measurement,46
+Suzuki 2024,LDL cholesterol,recovered,efo:low density lipoprotein cholesterol measurement,45
+Suzuki 2024,HDL cholesterol,recovered,efo:high density lipoprotein cholesterol measurement,43
+Suzuki 2024,Total cholesterol,recovered,efo:total cholesterol measurement,61
+Suzuki 2024,Non-HDL cholesterol,label_mismatch,disease:Non-HDL cholesterol levels,4
+Suzuki 2024,Apolipoprotein A1,recovered,efo:apolipoprotein A 1 measurement,53
+Suzuki 2024,Apolipoprotein B,recovered,efo:apolipoprotein B measurement,55
+Suzuki 2024,CRP,recovered,efo:C-reactive protein measurement,50
+Suzuki 2024,IGF-1,label_mismatch,disease:Insulin-like growth factor 1 levels,3
+Kim 2023,Two-hour glucose,recovered,disease:Two-hour glucose,2
+Kim 2023,Corrected insulin response,recovered,disease:Corrected insulin response,1
+Kim 2023,Disposition index,label_mismatch,disease:insulin disposition index,2
+Kim 2023,Fasting glucose,recovered,disease:Fasting glucose,6
+Kim 2023,Fasting insulin,recovered,disease:Fasting insulin,5
+Kim 2023,Proinsulin,recovered,disease:Proinsulin levels,1
+Kim 2023,HbA1c,recovered,disease:Glycated hemoglobin levels,8
+Kim 2023,HOMA-B,recovered,efo:HOMA-B,5
+Kim 2023,HOMA-IR,recovered,efo:HOMA-IR,3
+Kim 2023,Modified Stumvoll ISI,recovered,disease:Modified Stumvoll insulin sensitivity index,2
+Kim 2023,Random glucose,label_mismatch(broad),efo:glucose measurement,57
+Kim 2023,BMI,recovered,efo:body mass index,55
+Kim 2023,Body fat percentage,recovered,efo:body fat percentage,55
+Kim 2023,Height,recovered,efo:body height,38
+Kim 2023,Diastolic blood pressure,recovered,efo:diastolic blood pressure,40
+Kim 2023,Systolic blood pressure,recovered,efo:systolic blood pressure,37
+Kim 2023,Hip circumference,recovered,efo:hip circumference,17
+Kim 2023,Waist circumference,recovered,efo:waist circumference,14
+Kim 2023,Waist-hip ratio,recovered,efo:waist-hip ratio,36
+Kim 2023,Adiponectin,recovered,efo:adiponectin measurement,20
+Kim 2023,Leptin,recovered,efo:leptin measurement,19
+Kim 2023,Alanine aminotransferase,recovered,disease:Alanine aminotransferase levels,7
+Kim 2023,Aspartate aminotransferase,recovered,disease:Aspartate aminotransferase levels,6
+Kim 2023,Alkaline phosphatase,recovered,disease:Alkaline phosphatase levels,2
+Kim 2023,Gamma-glutamyltransferase,recovered,disease:Gamma glutamyl transferase levels,6
+Kim 2023,Albumin,recovered,disease:Serum albumin levels,6
+Kim 2023,Total protein,recovered,disease:Total protein levels,3
+Kim 2023,Direct bilirubin,recovered,disease:Direct bilirubin levels,1
+Kim 2023,Total bilirubin,label_mismatch,disease:Bilirubin levels,6
+Kim 2023,Apolipoprotein B,recovered,efo:apolipoprotein B measurement,55
+Kim 2023,HDL cholesterol,recovered,efo:high density lipoprotein cholesterol measurement,43
+Kim 2023,Triglycerides,recovered,efo:triglyceride measurement,46
+Kim 2023,Lipoprotein A,recovered,efo:lipoprotein A measurement,24
+Kim 2023,CRP,recovered,efo:C-reactive protein measurement,50
+Kim 2023,IGF-1,label_mismatch,disease:Insulin-like growth factor 1 levels,3
+Kim 2023,SHBG,recovered,efo:sex hormone-binding globulin measurement,60
+Kim 2023,Testosterone,recovered,efo:testosterone measurement,70
+Kim 2023,Calcium,label_mismatch,efo:calcium measurement,46
+Kim 2023,Phosphate,recovered,efo:phosphate measurement,38
+Kim 2023,Urea,recovered,efo:urea measurement,33
+Kim 2023,Urate,recovered,efo:urate measurement,60
+Kim 2023,Vitamin D,recovered,disease:Vitamin D levels,10
+Kim 2023,Hemoglobin,recovered,efo:hemoglobin measurement,38
+Kim 2023,Red blood cell count,recovered,efo:erythrocyte count,36
+Kim 2023,Red cell distribution width,label_mismatch,efo:red cell distribution width,26
+Kim 2023,Mean corpuscular volume,label_mismatch,disease:Mean corpuscular volume,11
+Kim 2023,Mean reticulocyte volume,label_mismatch,efo:mean reticulocyte volume,12
+Kim 2023,High light scatter reticulocyte count,label_mismatch,disease:High light scatter reticulocyte count,4
+Kim 2023,White blood cell count,recovered,disease:White blood cell count,13
+Kim 2023,Lymphocyte count,recovered,efo:lymphocyte count,100
+Kim 2023,Monocyte count,recovered,efo:monocyte count,39
+Kim 2023,Eosinophil count,recovered,efo:eosinophil count,37
+Kim 2023,Basophil count,recovered,efo:basophil count,14
+Kim 2023,Platelet count,recovered,efo:platelet count,36
+Kim 2023,Mean platelet volume,label_mismatch,disease:Mean platelet volume,12
+Kim 2023,Platelet distribution width,label_mismatch,disease:Platelet distribution width,4
+Smith 2024,Disposition index,label_mismatch,disease:insulin disposition index,2
+Smith 2024,Modified Stumvoll ISI,recovered,disease:Modified Stumvoll insulin sensitivity index,2
+Smith 2024,Proinsulin,recovered,disease:Proinsulin levels,1
+Smith 2024,HOMA-B,recovered,efo:HOMA-B,5
+Smith 2024,HOMA-IR,recovered,efo:HOMA-IR,3
+Smith 2024,Corrected insulin response,recovered,disease:Corrected insulin response,1
+Smith 2024,Fasting glucose,recovered,disease:Fasting glucose,6
+Smith 2024,Fasting insulin,recovered,disease:Fasting insulin,5
+Smith 2024,Two-hour glucose,recovered,disease:Two-hour glucose,2
+Smith 2024,HbA1c,recovered,disease:Glycated hemoglobin levels,8
+Smith 2024,Random glucose,label_mismatch(broad),efo:glucose measurement,57
+Smith 2024,Height,recovered,efo:body height,38
+Smith 2024,Waist-hip ratio,recovered,efo:waist-hip ratio,36
+Smith 2024,BMI,recovered,efo:body mass index,55
+Smith 2024,Waist circumference,recovered,efo:waist circumference,14
+Smith 2024,Hip circumference,recovered,efo:hip circumference,17
+Smith 2024,Trunk fat percentage,label_mismatch(broad),efo:body fat distribution,34
+Smith 2024,Basal metabolic rate,label_mismatch,disease:Basal metabolic rate,2
+Smith 2024,Abdominal subcutaneous adipose tissue volume,recovered,disease:Abdominal subcutaneous adipose tissue volume,2
+Smith 2024,Gluteofemoral adipose tissue volume,label_mismatch,efo:gluteofemoral adipose tissue measurement,4
+Smith 2024,Visceral adipose tissue volume,recovered,disease:Visceral adipose tissue,4
+Smith 2024,Leptin,recovered,efo:leptin measurement,19
+Smith 2024,Adiponectin,recovered,efo:adiponectin measurement,20
+Smith 2024,Heart rate,recovered,efo:heart rate,36
+Smith 2024,Systolic blood pressure,recovered,efo:systolic blood pressure,37
+Smith 2024,Diastolic blood pressure,recovered,efo:diastolic blood pressure,40
+Smith 2024,Total cholesterol,recovered,efo:total cholesterol measurement,61
+Smith 2024,Triglycerides,recovered,efo:triglyceride measurement,46
+Smith 2024,Apolipoprotein A1,recovered,efo:apolipoprotein A 1 measurement,53
+Smith 2024,Lipoprotein A,recovered,efo:lipoprotein A measurement,24
+Smith 2024,Alanine aminotransferase,recovered,disease:Alanine aminotransferase levels,7
+Smith 2024,Aspartate aminotransferase,recovered,disease:Aspartate aminotransferase levels,6
+Smith 2024,Gamma-glutamyltransferase,recovered,disease:Gamma glutamyl transferase levels,6
+Smith 2024,Alkaline phosphatase,recovered,disease:Alkaline phosphatase levels,2
+Smith 2024,Total bilirubin,label_mismatch,disease:Bilirubin levels,6
+Smith 2024,Creatinine,label_mismatch,disease:Creatinine levels,29
+Smith 2024,Cystatin C,recovered,efo:cystatin C measurement,40
+Smith 2024,Urate,recovered,efo:urate measurement,60
+Smith 2024,Urea,recovered,efo:urea measurement,33
+Smith 2024,CRP,recovered,efo:C-reactive protein measurement,50
+Smith 2024,Basophil count,recovered,efo:basophil count,14
+Smith 2024,Eosinophil count,recovered,efo:eosinophil count,37
+Smith 2024,Hemoglobin,recovered,efo:hemoglobin measurement,38
+Smith 2024,High light scatter reticulocyte count,label_mismatch,disease:High light scatter reticulocyte count,4
+Smith 2024,Lymphocyte count,recovered,efo:lymphocyte count,100
+Smith 2024,Mean corpuscular volume,label_mismatch,disease:Mean corpuscular volume,11
+Smith 2024,Mean reticulocyte volume,label_mismatch,efo:mean reticulocyte volume,12
+Smith 2024,Monocyte count,recovered,efo:monocyte count,39
+Smith 2024,Platelet count,recovered,efo:platelet count,36
+Smith 2024,Platelet distribution width,label_mismatch,disease:Platelet distribution width,4
+Smith 2024,Red blood cell count,recovered,efo:erythrocyte count,36
+Smith 2024,Red cell distribution width,label_mismatch,efo:red cell distribution width,26
+Smith 2024,White blood cell count,recovered,disease:White blood cell count,13
+Smith 2024,SHBG,recovered,efo:sex hormone-binding globulin measurement,60
+Smith 2024,Testosterone,recovered,efo:testosterone measurement,70
+Smith 2024,Oestradiol,recovered,efo:estradiol measurement,31
+Smith 2024,IGF-1,label_mismatch,disease:Insulin-like growth factor 1 levels,3
+Smith 2024,Vitamin D,recovered,disease:Vitamin D levels,10
+Smith 2024,Albumin,recovered,disease:Serum albumin levels,6
+Smith 2024,Total protein,recovered,disease:Total protein levels,3
+Smith 2024,Calcium,label_mismatch,efo:calcium measurement,46
+Smith 2024,Phosphate,recovered,efo:phosphate measurement,38
+Pascat 2026,Type 2 diabetes,recovered,efo:type 2 diabetes mellitus,37
+Pascat 2026,Diastolic blood pressure,recovered,efo:diastolic blood pressure,40
+Pascat 2026,Systolic blood pressure,recovered,efo:systolic blood pressure,37
+Pascat 2026,Pulse pressure,recovered,efo:pulse pressure measurement,27
+Pascat 2026,HbA1c,recovered,disease:Glycated hemoglobin levels,8
+Pascat 2026,Random glucose,label_mismatch(broad),efo:glucose measurement,57
+Pascat 2026,Two-hour glucose,recovered,disease:Two-hour glucose,2
+Pascat 2026,Fasting insulin,recovered,disease:Fasting insulin,5
+Pascat 2026,Proinsulin,recovered,disease:Proinsulin levels,1
+Pascat 2026,HOMA-IR,recovered,efo:HOMA-IR,3
+Pascat 2026,HOMA-B,recovered,efo:HOMA-B,5
+Pascat 2026,Modified Stumvoll ISI,recovered,disease:Modified Stumvoll insulin sensitivity index,2
+Pascat 2026,Insulin fold change,label_mismatch(broad),efo:insulin measurement,19
+Pascat 2026,BMI,recovered,efo:body mass index,55
+Pascat 2026,Waist-hip ratio,recovered,efo:waist-hip ratio,36
+Pascat 2026,Height,recovered,efo:body height,38
+Pascat 2026,Birth weight,recovered,efo:birth weight,40
+Pascat 2026,HDL cholesterol,recovered,efo:high density lipoprotein cholesterol measurement,43
+Pascat 2026,LDL cholesterol,recovered,efo:low density lipoprotein cholesterol measurement,45
+Pascat 2026,Triglycerides,recovered,efo:triglyceride measurement,46
+Pascat 2026,Testosterone,recovered,efo:testosterone measurement,70
+Pascat 2026,SHBG,recovered,efo:sex hormone-binding globulin measurement,60
+Pascat 2026,Oestradiol,recovered,efo:estradiol measurement,31
+Pascat 2026,Age at menarche,recovered,efo:age at menarche,20
+Pascat 2026,Age at menopause,recovered,efo:age at menopause,21
+Pascat 2026,Adiponectin,recovered,efo:adiponectin measurement,20
+Pascat 2026,Leptin,recovered,efo:leptin measurement,19
+Pascat 2026,IGF-1,label_mismatch,disease:Insulin-like growth factor 1 levels,3
+Pascat 2026,PAI-1,recovered,efo:plasminogen activator inhibitor 1 measurement,13
+Pascat 2026,Renin,recovered,efo:renin measurement,9
+Pascat 2026,TRAIL-R2,label_mismatch,efo:TNF-related apoptosis-inducing ligand receptor 2 measurement,2
+Pascat 2026,White blood cell count,recovered,disease:White blood cell count,13
+Pascat 2026,CRP,recovered,efo:C-reactive protein measurement,50
+Pascat 2026,Alanine aminotransferase,recovered,disease:Alanine aminotransferase levels,7
+Pascat 2026,Aspartate aminotransferase,recovered,disease:Aspartate aminotransferase levels,6
+Pascat 2026,Coronary artery disease,label_mismatch,disease:Coronary artery disease,9
+Pascat 2026,Atrial fibrillation,recovered,efo:atrial fibrillation,48
+Pascat 2026,Heart failure,recovered,efo:heart failure,39
+Pascat 2026,Stroke,label_mismatch,disease:Stroke,16
+Pascat 2026,Small vessel stroke,recovered,efo:small vessel stroke,8
+Pascat 2026,Heart rate,recovered,efo:heart rate,36
+Pascat 2026,Heel BMD,recovered,efo:heel bone mineral density,40
