@@ -1,0 +1,92 @@
+[get ] bmi  <- https://giant-consortium.web.broadinstitute.org/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz
+       -> sumstats/bmi.tbl.uniq.gz  (35M)
+[get ] bodyfat  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003435/harmonised/26833246-GCST003435-EFO_0007800.h.tsv.gz
+       -> sumstats/bodyfat.h.tsv.gz  (130M)
+[get ] cir  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005215/harmonised/24699409-GCST005215-EFO_0008473.h.tsv.gz
+       -> sumstats/cir.h.tsv.gz  (82M)
+[get ] di  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005222/harmonised/24699409-GCST005222-EFO_0006832.h.tsv.gz
+       -> sumstats/di.h.tsv.gz  (81M)
+[get ] fg  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000568/harmonised/20081858-GCST000568-EFO_0004465-build37.f.tsv.gz
+       -> sumstats/fg.f.tsv.gz  (28M)
+[get ] fg2hr  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000569/harmonised/20081857-GCST000569-EFO_0004307.h.tsv.gz
+       -> sumstats/fg2hr.h.tsv.gz  (76M)
+[get ] fi  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005185/harmonised/22581228-GCST005185-EFO_0004466.h.tsv.gz
+       -> sumstats/fi.h.tsv.gz  (83M)
+[get ] height  <- https://giant-consortium.web.broadinstitute.org/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz
+       -> sumstats/height.txt.gz  (34M)
+[get ] hip_f  <- https://giant-consortium.web.broadinstitute.org/images/3/3e/GIANT_2015_HIP_FEMALES_EUR.txt.gz
+       -> sumstats/hip_f.txt.gz  (29M)
+[get ] hip_m  <- https://giant-consortium.web.broadinstitute.org/images/2/20/GIANT_2015_HIP_MALES_EUR.txt.gz
+       -> sumstats/hip_m.txt.gz  (26M)
+[get ] hip  <- https://giant-consortium.web.broadinstitute.org/images/e/e4/GIANT_2015_HIP_COMBINED_EUR.txt.gz
+       -> sumstats/hip.txt.gz  (31M)
+[get ] hipadjbmi  <- https://giant-consortium.web.broadinstitute.org/images/5/52/GIANT_2015_HIPadjBMI_COMBINED_EUR.txt.gz
+       -> sumstats/hipadjbmi.txt.gz  (47M)
+[get ] homab  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005180/harmonised/20081858-GCST005180-EFO_0004469-build37.f.tsv.gz
+       -> sumstats/homab.f.tsv.gz  (28M)
+[get ] homair  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005179/harmonised/20081858-GCST005179-EFO_0004501-build37.f.tsv.gz
+       -> sumstats/homair.f.tsv.gz  (28M)
+[get ] incr30  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005219/harmonised/24699409-GCST005219-EFO_0004467.h.tsv.gz
+       -> sumstats/incr30.h.tsv.gz  (81M)
+[get ] ins30_bmi  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005217/harmonised/24699409-GCST005217-EFO_0008473.h.tsv.gz
+       -> sumstats/ins30_bmi.h.tsv.gz  (82M)
+[get ] isi  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005178/harmonised/27416945-GCST005178-EFO_0004471.h.tsv.gz
+       -> sumstats/isi.h.tsv.gz  (65M)
+[get ] isibmi  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003659/harmonised/27416945-GCST003659-EFO_0004471.h.tsv.gz
+       -> sumstats/isibmi.h.tsv.gz  (66M)
+[get ] leptin  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003367/harmonised/26833098-GCST003367-EFO_0005000-build37.f.tsv.gz
+       -> sumstats/leptin.f.tsv.gz  (28M)
+[get ] proins  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST001001-GCST002000/GCST001212/harmonised/21873549-GCST001212-EFO_0004467.h.tsv.gz
+       -> sumstats/proins.h.tsv.gz  (81M)
+[get ] sat  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003965/harmonised/27918534-GCST003965-EFO_0004766.h.tsv.gz
+       -> sumstats/sat.h.tsv.gz  (69M)
+[get ] urate  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST001001-GCST002000/GCST001791/harmonised/23263486-GCST001791-EFO_0004531.h.tsv.gz
+       -> sumstats/urate.h.tsv.gz  (85M)
+[get ] vat_adjbmi  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003972/harmonised/27918534-GCST003972-EFO_0004767.h.tsv.gz
+       -> sumstats/vat_adjbmi.h.tsv.gz  (70M)
+[get ] vat  <- https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003967/harmonised/27918534-GCST003967-EFO_0004765.h.tsv.gz
+       -> sumstats/vat.h.tsv.gz  (71M)
+[get ] wc_female  <- https://giant-consortium.web.broadinstitute.org/images/2/2b/GIANT_2015_WC_FEMALES_EUR.txt.gz
+       -> sumstats/wc_female.txt.gz  (29M)
+[get ] wc_male  <- https://giant-consortium.web.broadinstitute.org/images/5/5a/GIANT_2015_WC_MALES_EUR.txt.gz
+       -> sumstats/wc_male.txt.gz  (27M)
+[get ] wc  <- https://giant-consortium.web.broadinstitute.org/images/5/57/GIANT_2015_WC_COMBINED_EUR.txt.gz
+       -> sumstats/wc.txt.gz  (31M)
+[get ] wcadjbmi  <- https://giant-consortium.web.broadinstitute.org/images/7/73/GIANT_2015_WCadjBMI_COMBINED_EUR.txt.gz
+       -> sumstats/wcadjbmi.txt.gz  (47M)
+[get ] whr_f  <- https://giant-consortium.web.broadinstitute.org/images/d/de/GIANT_2015_WHR_FEMALES_EUR.txt.gz
+       -> sumstats/whr_f.txt.gz  (44M)
+[get ] whr_m  <- https://giant-consortium.web.broadinstitute.org/images/f/fd/GIANT_2015_WHR_MALES_EUR.txt.gz
+       -> sumstats/whr_m.txt.gz  (39M)
+[get ] whr  <- https://giant-consortium.web.broadinstitute.org/images/5/54/GIANT_2015_WHR_COMBINED_EUR.txt.gz
+       -> sumstats/whr.txt.gz  (46M)
+[get ] whradjbmi  <- https://giant-consortium.web.broadinstitute.org/images/e/eb/GIANT_2015_WHRadjBMI_COMBINED_EUR.txt.gz
+       -> sumstats/whradjbmi.txt.gz  (31M)
+
+======================================================================
+자동 다운로드: 성공 32 / 건너뜀 0 / 실패 0
+
+아래는 브라우저로 직접 받아 sumstats/ 에 넣어야 하는 것들입니다.
+(파일명은 sumstats/<key>.tsv.gz 형태로 맞춰주세요)
+----------------------------------------------------------------------
+  adip           Adipogen               (404 - 대체 소스 필요) ()
+  bl             EGG                    https://egg-consortium.org/ ()
+  bw             EGG                    https://egg-consortium.org/ ()
+  dpa            CHARGE                 https://www.chargeconsortium.com/main/results ()
+  fi_bmi         MAGIC                  https://magicinvestigators.org/downloads/ (Manning 2012)
+  hba1c          MAGIC                  https://magicinvestigators.org/downloads/ (Soranzo 2010)
+  hdl            ENGAGE                 http://diagram-consortium.org/2015_ENGAGE_1KG/ ()
+  ldl            ENGAGE                 http://diagram-consortium.org/2015_ENGAGE_1KG/ ()
+  leptinbmi      Catalog GCST003367     https://www.ebi.ac.uk/gwas/publications/26833098 (MISSING: BMI보정 accession 분리 필요)
+  n6_1821        CHARGE                 https://www.chargeconsortium.com/main/results ()
+  n6_1831        CHARGE                 https://www.chargeconsortium.com/main/results ()
+  n6_2031        CHARGE                 https://www.chargeconsortium.com/main/results ()
+  palmitoleic    CHARGE                 https://www.chargeconsortium.com/main/results ()
+  tc             ENGAGE                 http://diagram-consortium.org/2015_ENGAGE_1KG/ ()
+  tg             ENGAGE                 http://diagram-consortium.org/2015_ENGAGE_1KG/ ()
+  t2d_diagram_v3 DIAGRAMv3 (질병축)  http://diagram-consortium.org/downloads.html (Morris 2012 Stage 1; OR+95%CI)
+======================================================================
+
+질병 GWAS (행 정의용) 는 매니페스트에 없습니다. 따로 받으세요:
+  DIAGRAMv3 Stage 1  ->  http://diagram-consortium.org/downloads.html
+  받은 뒤 sumstats/t2d_diagram_v3.txt.gz 로 두세요.

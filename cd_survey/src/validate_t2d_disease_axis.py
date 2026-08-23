@@ -23,7 +23,7 @@ validate_t2d_disease_axis.py  -  T2D 검증 [질병 축 = matrix '행(row)']
   multi-ancestry 연구(예: Suzuki 2024)는 European-only 기준에 걸려 정상적으로 제외된다
   (=오류가 아니라 기준대로 작동. 이 점도 결과에 명시된다).
 
-실행: python src/validate_t2d_disease_axis.py   (src/에 gwas_catalog_survey.py 필요; 출력 outputs/)
+실행: python cd_survey/src/validate_t2d_disease_axis.py   (같은 폴더에 gwas_catalog_survey.py 필요; 출력 cd_survey/outputs/)
 ================================================================================
 """
 import csv

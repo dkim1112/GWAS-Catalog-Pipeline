@@ -1,0 +1,48 @@
+column,s2_trait,consortium,source_status
+adip_zscale2,Adiponectin (BMI adjusted),Adipogen,DEAD_404
+bl_zscale2,Birth length,EGG,OK
+bmi_zscale2,bmi,GIANT,OK
+bodyfat_zscale2,Body_fat_percent,(mssm),BLOCKED
+bw_zscale2,Birth weight,EGG,OK
+cir_zscale2,CIR,MAGIC,BLOCKED_403
+di_zscale2,disposition index,MAGIC,BLOCKED_403
+dpa_zscale2,DPA,CHARGE,OK
+fg_zscale2,Fasting glucose,MAGIC,BLOCKED_403
+fg2hr_zscale2,2hr glucose adj BMI,MAGIC,BLOCKED_403
+fi_bmi_zscale2,Fasting Insulin adj BMI,MAGIC,BLOCKED_403
+fi_zscale2,Fasting Insulin,MAGIC,BLOCKED_403
+hba1c_zscale2,hba1c,MAGIC,BLOCKED_403
+hdl_zscale2,hdl,ENGAGE,OK
+height_zscale2,height,GIANT,OK
+hip_f_zscale2,hip_female,GIANT,OK
+hip_m_zscale2,hip_male,GIANT,OK
+hip_zscale2,hip circumference,GIANT,OK
+hipadjbmi_zscale2,hip adj bmi,GIANT,OK
+homab_zscale2,homa-b,MAGIC,BLOCKED_403
+homair_zscale2,homa-ir,MAGIC,BLOCKED_403
+incr30_zscale2,incr30,MAGIC,BLOCKED_403
+ins30_bmi_zscale2,ins30_adjBMI,MAGIC,BLOCKED_403
+isi_zscale2,ISI,MAGIC,BLOCKED_403
+isibmi_zscale2,ISI_adjBMI,MAGIC,BLOCKED_403
+ldl_zscale2,ldl,ENGAGE,OK
+leptin_zscale2,Leptin,(mssm),BLOCKED
+leptinbmi_zscale2,Leptin_bmiadj,(mssm),BLOCKED
+n6_1821_zscale2,linoleic,CHARGE,OK
+n6_1831_zscale2,gamma-linolenic,CHARGE,OK
+n6_2031_zscale2,dihomo-gamma-linolenic acid,CHARGE,OK
+palmitoleic_zscale2,palmitoleic,CHARGE,OK
+proins_zscale2,proinsulin,MAGIC,BLOCKED_403
+sat_zscale2,SAT,VATGEen,DEAD_NHLBI
+tc_zscale2,total cholesterol,ENGAGE,OK
+tg_zscale2,triglycerides,ENGAGE,OK
+urate_zscale2,Urate,GUGC,DEAD_503
+vat_adjbmi_zscale2,VATHU,VATGEen,DEAD_NHLBI
+vat_zscale2,VAT,VATGEen,DEAD_NHLBI
+wc_female_zscale2,wc_female,GIANT,OK
+wc_male_zscale2,wc_male,GIANT,OK
+wc_zscale2,wc,GIANT,OK
+wcadjbmi_zscale2,wc_adj_bmi,GIANT,OK
+whr_f_zscale2,whr_female,GIANT,OK
+whr_m_zscale2,whr_male,GIANT,OK
+whr_zscale2,whr,GIANT,OK
+whradjbmi_zscale2,whr_adj_bmi,GIANT,OK

@@ -1,0 +1,36 @@
+trait,result,note
+vat_adjbmi,removed (p-value),min pval= 1.80851e-03
+wc,removed (correlation),correlated w/ bmi
+hip,removed (correlation),correlated w/ bmi
+hip_f,removed (correlation),correlated w/ bmi
+wc_male,removed (correlation),correlated w/ bmi
+hip_m,removed (correlation),correlated w/ bmi
+whr_f,removed (correlation),correlated w/ whr
+di,removed (correlation),correlated w/ cir
+ins30_bmi,removed (correlation),correlated w/ cir
+bl,trait kept,NA
+bmi,trait kept,NA
+bodyfat,trait kept,NA
+bw,trait kept,NA
+cir,trait kept,NA
+fg,trait kept,NA
+fg2hr,trait kept,NA
+fi,trait kept,NA
+hba1c,trait kept,NA
+height,trait kept,NA
+hipadjbmi,trait kept,NA
+homab,trait kept,NA
+homair,trait kept,NA
+incr30,trait kept,NA
+isi,trait kept,NA
+isibmi,trait kept,NA
+leptin,trait kept,NA
+proins,trait kept,NA
+sat,trait kept,NA
+urate,trait kept,NA
+vat,trait kept,NA
+wc_female,trait kept,NA
+wcadjbmi,trait kept,NA
+whr_m,trait kept,NA
+whr,trait kept,NA
+whradjbmi,trait kept,NA

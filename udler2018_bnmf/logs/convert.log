@@ -1,0 +1,45 @@
+  OK bl           [generic   ] 2,067,516행 변환 / 134,455행 제외 -> bl.tsv.gz
+  OK bmi          [giant     ] 2,398,841행 변환 / 155,796행 제외 -> bmi.tsv.gz
+  OK bodyfat      [harmonised] 2,853,648행 변환 / 374,926행 제외 -> bodyfat.tsv.gz
+  OK bw           [generic   ] 10,985,840행 변환 / 5,259,683행 제외 -> bw.tsv.gz
+  OK cir          [harmonised] 2,147,063행 변환 / 277,872행 제외 -> cir.tsv.gz
+  OK di           [harmonised] 2,147,820행 변환 / 277,977행 제외 -> di.tsv.gz
+  OK fg           [author    ] 2,319,615행 변환 / 150,861행 제외 -> fg.tsv.gz
+  OK fg2hr        [harmonised] 2,123,636행 변환 / 277,775행 제외 -> fg2hr.tsv.gz
+  OK fi           [harmonised] 2,300,536행 변환 / 318,139행 제외 -> fi.tsv.gz
+  OK hba1c        [giant     ] 2,375,926행 변환 / 200,753행 제외 -> hba1c.tsv.gz
+  OK height       [giant     ] 2,392,570행 변환 / 158,288행 제외 -> height.tsv.gz
+  OK hip          [giant     ] 2,376,200행 변환 / 183,538행 제외 -> hip.tsv.gz
+  OK hip_f        [giant     ] 2,319,002행 변환 / 147,812행 제외 -> hip_f.tsv.gz
+  OK hip_m        [giant     ] 2,082,292행 변환 / 131,510행 제외 -> hip_m.tsv.gz
+  OK hipadjbmi    [giant     ] 2,358,945행 변환 / 181,980행 제외 -> hipadjbmi.tsv.gz
+  OK homab        [author    ] 2,307,389행 변환 / 149,556행 제외 -> homab.tsv.gz
+  OK homair       [author    ] 2,308,415행 변환 / 149,658행 제외 -> homair.tsv.gz
+  OK incr30       [harmonised] 2,148,747행 변환 / 278,253행 제외 -> incr30.tsv.gz
+  OK ins30_bmi    [harmonised] 2,152,667행 변환 / 279,158행 제외 -> ins30_bmi.tsv.gz
+  OK isi          [harmonised] 2,141,194행 변환 / 282,163행 제외 -> isi.tsv.gz
+  OK isibmi       [harmonised] 2,146,591행 변환 / 276,555행 제외 -> isibmi.tsv.gz
+  OK leptin       [author    ] 2,323,071행 변환 / 150,793행 제외 -> leptin.tsv.gz
+  OK proins       [harmonised] 2,199,255행 변환 / 296,441행 제외 -> proins.tsv.gz
+  ~  sat: BETA/SE 컬럼은 있으나 표본 1000행 중 1000행이 NA -> z 로 대체
+  ~  sat: z 사용 (BETA=z, SE=1) — z 값이 그대로 보존됩니다
+  OK sat          [harmonised] 2,550,380행 변환 / 380,430행 제외 -> sat.tsv.gz
+  ~  t2d_diagram_v3: BETA/SE 없음 -> OR 과 95% CI 로 유도 (BETA=log(OR), SE=(log(U95)-log(L95))/3.92)
+  OK t2d_diagram_v3 [giant     ] 2,287,052행 변환 / 186,389행 제외 -> t2d_diagram_v3.tsv.gz
+  OK urate        [harmonised] 2,156,472행 변환 / 286,184행 제외 -> urate.tsv.gz
+  ~  vat: BETA/SE 컬럼은 있으나 표본 1000행 중 1000행이 NA -> z 로 대체
+  ~  vat: z 사용 (BETA=z, SE=1) — z 값이 그대로 보존됩니다
+  OK vat          [harmonised] 2,551,546행 변환 / 380,565행 제외 -> vat.tsv.gz
+  ~  vat_adjbmi: BETA/SE 컬럼은 있으나 표본 1000행 중 1000행이 NA -> z 로 대체
+  ~  vat_adjbmi: z 사용 (BETA=z, SE=1) — z 값이 그대로 보존됩니다
+  OK vat_adjbmi   [harmonised] 2,549,353행 변환 / 323,562행 제외 -> vat_adjbmi.tsv.gz
+  OK wc           [giant     ] 2,379,955행 변환 / 185,452행 제외 -> wc.tsv.gz
+  OK wc_female    [giant     ] 2,297,474행 변환 / 146,880행 제외 -> wc_female.tsv.gz
+  OK wc_male      [giant     ] 2,165,250행 변환 / 136,754행 제외 -> wc_male.tsv.gz
+  OK wcadjbmi     [giant     ] 2,362,623행 변환 / 183,450행 제외 -> wcadjbmi.tsv.gz
+  OK whr          [giant     ] 2,377,425행 변환 / 183,356행 제외 -> whr.tsv.gz
+  OK whr_f        [giant     ] 2,318,367행 변환 / 147,734행 제외 -> whr_f.tsv.gz
+  OK whr_m        [giant     ] 2,076,415행 변환 / 131,114행 제외 -> whr_m.tsv.gz
+  OK whradjbmi    [giant     ] 2,360,088행 변환 / 182,343행 제외 -> whradjbmi.tsv.gz
+
+36개 파일 처리

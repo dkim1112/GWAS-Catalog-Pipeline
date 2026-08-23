@@ -42,7 +42,7 @@ GWAS Catalog 전수조사 (자동화)  -  Crohn's Disease bNMF 파일럿
     - UKB-PPP/deCODE/Nightingale 대사체는 GWAS Catalog에 PMID로 없어서(0건),
       전용 포털을 코드가 아니라 '수동 소스'로 문서화(CONFIG_MECHANISM_MANUAL).
 
-필요 패키지: requests   (pip install requests)   출력: outputs/*.csv (실행: python src/gwas_catalog_survey.py)
+필요 패키지: requests   (pip install requests)   출력: cd_survey/outputs/*.csv (실행: python cd_survey/src/gwas_catalog_survey.py)
 재사용: 다른 질환으로 바꾸려면 CONFIG_ROWS의 값만 교체.
 ================================================================================
 """
@@ -51,7 +51,7 @@ import requests, csv, time, os
 BASE = "https://www.ebi.ac.uk/gwas/rest/api"      # GWAS Catalog REST API 루트
 H    = {"Accept": "application/json"}
 
-# 생성 CSV는 모두 repo의 outputs/ 로. 스크립트 위치(src/) 기준으로 잡아 실행 cwd와 무관.
+# 생성 CSV는 모두 cd_survey/outputs/ 로. 스크립트 위치(cd_survey/src/) 기준으로 잡아 실행 cwd와 무관.
 # 다른 위치를 원하면 환경변수 PIPELINE_OUT_DIR 로 덮어쓴다. (검증/추출 스크립트도 g.outpath 사용)
 OUT_DIR = os.environ.get("PIPELINE_OUT_DIR",
           os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "outputs")))

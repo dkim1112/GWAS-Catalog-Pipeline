@@ -1,0 +1,49 @@
+column,key,source,status,direct_url,portal_url,local_file,note
+adip_zscale2,adip,Adipogen,NEEDS_MANUAL,,(404 - 대체 소스 필요),sumstats/adip.tsv.gz,
+bl_zscale2,bl,EGG,NEEDS_MANUAL,,https://egg-consortium.org/,sumstats/bl.tsv.gz,
+bmi_zscale2,bmi,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz,,sumstats/bmi.tsv.gz,Locke 2015
+bodyfat_zscale2,bodyfat,Catalog GCST003435,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003435/harmonised/26833246-GCST003435-EFO_0007800.h.tsv.gz,,sumstats/bodyfat.tsv.gz,Lu 2016; hg38
+bw_zscale2,bw,EGG,NEEDS_MANUAL,,https://egg-consortium.org/,sumstats/bw.tsv.gz,
+cir_zscale2,cir,Catalog GCST005215,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005215/harmonised/24699409-GCST005215-EFO_0008473.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/cir.tsv.gz,Prokopenko 2014; hg38 (원 배포처 대체)
+di_zscale2,di,Catalog GCST005222,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005222/harmonised/24699409-GCST005222-EFO_0006832.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/di.tsv.gz,Prokopenko 2014; hg38 (원 배포처 대체)
+dpa_zscale2,dpa,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/dpa.tsv.gz,
+fg_zscale2,fg,Catalog GCST000568,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000568/harmonised/20081858-GCST000568-EFO_0004465-build37.f.tsv.gz,,sumstats/fg.tsv.gz,Dupuis 2010; hg19 (MAGIC 원본 우선)
+fg2hr_zscale2,fg2hr,Catalog GCST000569,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000569/harmonised/20081857-GCST000569-EFO_0004307.h.tsv.gz,,sumstats/fg2hr.tsv.gz,Saxena 2010; hg38 (MAGIC 원본 우선)
+fi_bmi_zscale2,fi_bmi,MAGIC,NEEDS_MANUAL,,https://magicinvestigators.org/downloads/,sumstats/fi_bmi.tsv.gz,Manning 2012
+fi_zscale2,fi,Catalog GCST005185,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005185/harmonised/22581228-GCST005185-EFO_0004466.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/fi.tsv.gz,Manning 2012; hg38 (원 배포처 대체)
+hba1c_zscale2,hba1c,MAGIC,NEEDS_MANUAL,,https://magicinvestigators.org/downloads/,sumstats/hba1c.tsv.gz,Soranzo 2010
+hdl_zscale2,hdl,ENGAGE,NEEDS_MANUAL,,http://diagram-consortium.org/2015_ENGAGE_1KG/,sumstats/hdl.tsv.gz,
+height_zscale2,height,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz,,sumstats/height.tsv.gz,Wood 2014
+hip_f_zscale2,hip_f,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/3/3e/GIANT_2015_HIP_FEMALES_EUR.txt.gz,,sumstats/hip_f.tsv.gz,Shungin 2015
+hip_m_zscale2,hip_m,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/2/20/GIANT_2015_HIP_MALES_EUR.txt.gz,,sumstats/hip_m.tsv.gz,Shungin 2015
+hip_zscale2,hip,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/e/e4/GIANT_2015_HIP_COMBINED_EUR.txt.gz,,sumstats/hip.tsv.gz,Shungin 2015
+hipadjbmi_zscale2,hipadjbmi,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/5/52/GIANT_2015_HIPadjBMI_COMBINED_EUR.txt.gz,,sumstats/hipadjbmi.tsv.gz,Shungin 2015
+homab_zscale2,homab,Catalog GCST005180,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005180/harmonised/20081858-GCST005180-EFO_0004469-build37.f.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/homab.tsv.gz,Dupuis 2010; hg19 (원 배포처 대체)
+homair_zscale2,homair,Catalog GCST005179,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005179/harmonised/20081858-GCST005179-EFO_0004501-build37.f.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/homair.tsv.gz,Dupuis 2010; hg19 (원 배포처 대체)
+incr30_zscale2,incr30,Catalog GCST005219,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005219/harmonised/24699409-GCST005219-EFO_0004467.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/incr30.tsv.gz,Prokopenko 2014; hg38 (원 배포처 대체)
+ins30_bmi_zscale2,ins30_bmi,Catalog GCST005217,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005217/harmonised/24699409-GCST005217-EFO_0008473.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/ins30_bmi.tsv.gz,Prokopenko 2014; hg38 (원 배포처 대체)
+isi_zscale2,isi,Catalog GCST005178,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005178/harmonised/27416945-GCST005178-EFO_0004471.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/isi.tsv.gz,Walford 2016; hg38 (원 배포처 대체)
+isibmi_zscale2,isibmi,Catalog GCST003659,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003659/harmonised/27416945-GCST003659-EFO_0004471.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/isibmi.tsv.gz,Walford 2016; hg38 (원 배포처 대체)
+ldl_zscale2,ldl,ENGAGE,NEEDS_MANUAL,,http://diagram-consortium.org/2015_ENGAGE_1KG/,sumstats/ldl.tsv.gz,
+leptin_zscale2,leptin,Catalog GCST003367,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003367/harmonised/26833098-GCST003367-EFO_0005000-build37.f.tsv.gz,,sumstats/leptin.tsv.gz,Kilpelainen 2016; hg19
+leptinbmi_zscale2,leptinbmi,Catalog GCST003367,NEEDS_MANUAL,,https://www.ebi.ac.uk/gwas/publications/26833098,sumstats/leptinbmi.tsv.gz,MISSING: BMI보정 accession 분리 필요
+n6_1821_zscale2,n6_1821,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/n6_1821.tsv.gz,
+n6_1831_zscale2,n6_1831,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/n6_1831.tsv.gz,
+n6_2031_zscale2,n6_2031,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/n6_2031.tsv.gz,
+palmitoleic_zscale2,palmitoleic,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/palmitoleic.tsv.gz,
+proins_zscale2,proins,Catalog GCST001212,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST001001-GCST002000/GCST001212/harmonised/21873549-GCST001212-EFO_0004467.h.tsv.gz,,sumstats/proins.tsv.gz,Strawbridge 2011; hg38 (MAGIC 원본 우선)
+sat_zscale2,sat,Catalog GCST003965,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003965/harmonised/27918534-GCST003965-EFO_0004766.h.tsv.gz,,sumstats/sat.tsv.gz,Chu 2016; hg38
+tc_zscale2,tc,ENGAGE,NEEDS_MANUAL,,http://diagram-consortium.org/2015_ENGAGE_1KG/,sumstats/tc.tsv.gz,
+tg_zscale2,tg,ENGAGE,NEEDS_MANUAL,,http://diagram-consortium.org/2015_ENGAGE_1KG/,sumstats/tg.tsv.gz,
+urate_zscale2,urate,Catalog GCST001791,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST001001-GCST002000/GCST001791/harmonised/23263486-GCST001791-EFO_0004531.h.tsv.gz,,sumstats/urate.tsv.gz,Köttgen; hg38
+vat_adjbmi_zscale2,vat_adjbmi,Catalog GCST003972,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003972/harmonised/27918534-GCST003972-EFO_0004767.h.tsv.gz,,sumstats/vat_adjbmi.tsv.gz,Chu 2016; hg38
+vat_zscale2,vat,Catalog GCST003967,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003967/harmonised/27918534-GCST003967-EFO_0004765.h.tsv.gz,,sumstats/vat.tsv.gz,Chu 2016; hg38
+wc_female_zscale2,wc_female,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/2/2b/GIANT_2015_WC_FEMALES_EUR.txt.gz,,sumstats/wc_female.tsv.gz,Shungin 2015
+wc_male_zscale2,wc_male,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/5/5a/GIANT_2015_WC_MALES_EUR.txt.gz,,sumstats/wc_male.tsv.gz,Shungin 2015
+wc_zscale2,wc,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/5/57/GIANT_2015_WC_COMBINED_EUR.txt.gz,,sumstats/wc.tsv.gz,Shungin 2015
+wcadjbmi_zscale2,wcadjbmi,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/7/73/GIANT_2015_WCadjBMI_COMBINED_EUR.txt.gz,,sumstats/wcadjbmi.tsv.gz,Shungin 2015
+whr_f_zscale2,whr_f,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/d/de/GIANT_2015_WHR_FEMALES_EUR.txt.gz,,sumstats/whr_f.tsv.gz,Shungin 2015
+whr_m_zscale2,whr_m,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/f/fd/GIANT_2015_WHR_MALES_EUR.txt.gz,,sumstats/whr_m.tsv.gz,Shungin 2015
+whr_zscale2,whr,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/5/54/GIANT_2015_WHR_COMBINED_EUR.txt.gz,,sumstats/whr.tsv.gz,Shungin 2015
+whradjbmi_zscale2,whradjbmi,GIANT,DIRECT_URL,https://giant-consortium.web.broadinstitute.org/images/e/eb/GIANT_2015_WHRadjBMI_COMBINED_EUR.txt.gz,,sumstats/whradjbmi.tsv.gz,Shungin 2015
+t2d_diagram_v3,t2d_diagram_v3,DIAGRAMv3 (질병축),MANUAL_DONE,,http://diagram-consortium.org/downloads.html,sumstats/t2d_diagram_v3.txt.gz,Morris 2012 Stage 1; OR+95%CI

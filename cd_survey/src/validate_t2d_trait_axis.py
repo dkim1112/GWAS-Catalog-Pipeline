@@ -41,10 +41,10 @@ validate_t2d_trait_axis.py  -  T2D 검증 [형질 축 = matrix '열(column)'] / 
   / Pascat 2026(Nat Commun Supp Data 4, 45->distinct 42)
   * sex별(_female/_male)·adjBMI·ratio 변형은 distinct 표현형으로 축약(우리 flow는 성별
     분리를 안 하므로; 원 trait 수는 위 괄호, distinct 수가 아래 리스트 길이).
-  * 결과 수치는 하드코딩하지 않는다 -> `python src/validate_t2d_trait_axis.py` 를 돌리면
+  * 결과 수치는 하드코딩하지 않는다 -> `python cd_survey/src/validate_t2d_trait_axis.py` 를 돌리면
     t2d_overlap_result.csv 에 논문별 3분류 집계가 그때그때 재계산된다.
 
-실행: python src/validate_t2d_trait_axis.py   (src/에 gwas_catalog_survey.py 필요; 출력은 outputs/)
+실행: python cd_survey/src/validate_t2d_trait_axis.py   (같은 폴더에 gwas_catalog_survey.py 필요; 출력은 cd_survey/outputs/)
 ================================================================================
 """
 import requests, csv
