@@ -6,7 +6,7 @@ bodyfat_zscale2,bodyfat,Catalog GCST003435,DIRECT_URL,https://ftp.ebi.ac.uk/pub/
 bw_zscale2,bw,EGG,NEEDS_MANUAL,,https://egg-consortium.org/,sumstats/bw.tsv.gz,
 cir_zscale2,cir,Catalog GCST005215,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005215/harmonised/24699409-GCST005215-EFO_0008473.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/cir.tsv.gz,Prokopenko 2014; hg38 (원 배포처 대체)
 di_zscale2,di,Catalog GCST005222,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST005001-GCST006000/GCST005222/harmonised/24699409-GCST005222-EFO_0006832.h.tsv.gz,https://magicinvestigators.org/downloads/,sumstats/di.tsv.gz,Prokopenko 2014; hg38 (원 배포처 대체)
-dpa_zscale2,dpa,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/dpa.tsv.gz,
+dpa_zscale2,dpa,CHARGE,DIRECT_URL,https://faculty.washington.edu/rozenl/files/CHARGE_N3_DPA.txt,https://www.chargeconsortium.com/main/results,sumstats/dpa.tsv.gz,지방산; Udler S2 기준
 fg_zscale2,fg,Catalog GCST000568,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000568/harmonised/20081858-GCST000568-EFO_0004465-build37.f.tsv.gz,,sumstats/fg.tsv.gz,Dupuis 2010; hg19 (MAGIC 원본 우선)
 fg2hr_zscale2,fg2hr,Catalog GCST000569,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000569/harmonised/20081857-GCST000569-EFO_0004307.h.tsv.gz,,sumstats/fg2hr.tsv.gz,Saxena 2010; hg38 (MAGIC 원본 우선)
 fi_bmi_zscale2,fi_bmi,MAGIC,NEEDS_MANUAL,,https://magicinvestigators.org/downloads/,sumstats/fi_bmi.tsv.gz,Manning 2012
@@ -27,10 +27,10 @@ isibmi_zscale2,isibmi,Catalog GCST003659,DIRECT_URL,https://ftp.ebi.ac.uk/pub/da
 ldl_zscale2,ldl,ENGAGE,NEEDS_MANUAL,,http://diagram-consortium.org/2015_ENGAGE_1KG/,sumstats/ldl.tsv.gz,
 leptin_zscale2,leptin,Catalog GCST003367,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003367/harmonised/26833098-GCST003367-EFO_0005000-build37.f.tsv.gz,,sumstats/leptin.tsv.gz,Kilpelainen 2016; hg19
 leptinbmi_zscale2,leptinbmi,Catalog GCST003367,NEEDS_MANUAL,,https://www.ebi.ac.uk/gwas/publications/26833098,sumstats/leptinbmi.tsv.gz,MISSING: BMI보정 accession 분리 필요
-n6_1821_zscale2,n6_1821,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/n6_1821.tsv.gz,
-n6_1831_zscale2,n6_1831,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/n6_1831.tsv.gz,
-n6_2031_zscale2,n6_2031,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/n6_2031.tsv.gz,
-palmitoleic_zscale2,palmitoleic,CHARGE,NEEDS_MANUAL,,https://www.chargeconsortium.com/main/results,sumstats/palmitoleic.tsv.gz,
+n6_1821_zscale2,n6_1821,CHARGE,DIRECT_URL,https://faculty.washington.edu/rozenl/files/N6meta182.txt,https://www.chargeconsortium.com/main/results,sumstats/n6_1821.tsv.gz,지방산; Udler S2 기준
+n6_1831_zscale2,n6_1831,CHARGE,DIRECT_URL,https://faculty.washington.edu/rozenl/files/N6meta183.txt,https://www.chargeconsortium.com/main/results,sumstats/n6_1831.tsv.gz,지방산; Udler S2 기준
+n6_2031_zscale2,n6_2031,CHARGE,DIRECT_URL,https://faculty.washington.edu/rozenl/files/N6meta203.txt,https://www.chargeconsortium.com/main/results,sumstats/n6_2031.tsv.gz,지방산; Udler S2 기준
+palmitoleic_zscale2,palmitoleic,CHARGE,DIRECT_URL,https://faculty.washington.edu/rozenl/files/CHARGE_161n7.txt,https://www.chargeconsortium.com/main/results,sumstats/palmitoleic.tsv.gz,지방산; Udler S2 기준
 proins_zscale2,proins,Catalog GCST001212,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST001001-GCST002000/GCST001212/harmonised/21873549-GCST001212-EFO_0004467.h.tsv.gz,,sumstats/proins.tsv.gz,Strawbridge 2011; hg38 (MAGIC 원본 우선)
 sat_zscale2,sat,Catalog GCST003965,DIRECT_URL,https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST003001-GCST004000/GCST003965/harmonised/27918534-GCST003965-EFO_0004766.h.tsv.gz,,sumstats/sat.tsv.gz,Chu 2016; hg38
 tc_zscale2,tc,ENGAGE,NEEDS_MANUAL,,http://diagram-consortium.org/2015_ENGAGE_1KG/,sumstats/tc.tsv.gz,

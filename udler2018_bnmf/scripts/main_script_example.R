@@ -57,7 +57,9 @@ library(ggplot2)
 working_dir <- getwd()
 
 # Pipeline version label (used for output directory and checkpoint filenames)
-version <- "udler2018_eur_v1"
+# v1 (35 trait) -> v2 (40 trait, CHARGE 지방산 5개 추가) 로 갱신.
+# 이전 결과 폴더 (udler2018_eur_v1_results/) 와 체크포인트 (.RData) 는 그대로 유지.
+version <- "udler2018_eur_v2"
 
 # Path to the GWAS manifest Excel file
 gwas_file <- file.path(working_dir, "manifest.xlsx")

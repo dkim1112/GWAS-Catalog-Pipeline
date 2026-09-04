@@ -5,11 +5,14 @@ Crohn's Disease(CD)의 유전적 서브타입을 bNMF로 정의하기 위한 **�
 
 담당: Dongeun (UM Cutaneous Lab, Dr. Matthew Patrick) · 문서 갱신: 2026-08
 
+> 저장소의 파일별 역할과 현재 상태를 빠르게 보려면 [`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md)를 먼저 참고하세요.
+
 ## 폴더 구조
 
 ```
 GWAS Catalog Pipeline/
   README.md                         <- (이 파일)
+  PROJECT_STRUCTURE.md              <- 파일별 역할과 현재 상태를 정리한 코드 지도
   T2D_bNMF_재현_보고서.docx         <- ★ Udler 2018 재현 전 과정 보고서
   docs/generate_report.py           <- 위 docx 재생성 스크립트
   cd_survey/                        <- (1) CD 재료 수집·검증 (Step 1-2)

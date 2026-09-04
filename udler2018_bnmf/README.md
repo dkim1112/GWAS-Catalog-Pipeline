@@ -64,6 +64,10 @@ T2D bNMF 파이프라인을 Udler et al. 2018 (PLoS Med) 기준으로 재현하�
 2. `fetch_summary_stats` 호출 (295~303행) — **주석 처리되어 있는데 308행이
    그 결과물을 씁니다.** 주석을 안 풀면 `object 'z_n_mats' not found` 로 죽습니다.
 
+**주의: `_rsid_map.sqlite` 파일 삭제하지 마세요.** `convert_sumstats.py` 가 매번
+필요로 합니다. 용량 아끼겠다고 지우면, 나중에 형질 추가하거나 재변환할 때
+`--index` (~4분) 로 다시 만들어야 합니다. 두면 2.1GB, 없으면 매번 재생성.
+
 ## 폴더 구조
 
 ```
