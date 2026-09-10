@@ -3,7 +3,7 @@
 """
 build_rsid_map.py — 파이프라인이 요구하는 rsID <-> hg19 위치 맵 생성.
 
-출력: rsid_maps_by_chr/chr{N}.txt   (1~22)
+출력: data/rsid_maps_by_chr/chr{N}.txt   (1~22)
       헤더 없음, 탭 구분, 컬럼 4개
       hg19_posID(=chrN:POS) \t rsID \t ref_allele \t alt_allele
       choose_variants_2025.R:993~994 의 col.names 와 일치.
@@ -14,7 +14,7 @@ build_rsid_map.py — 파이프라인이 요구하는 rsID <-> hg19 위치 맵 �
       common = 1000G 에서 MAF>=1% 인 변이 -> LD proxy 탐색 대상과 같은 모집단.
 
   왜 이 파일인가 (시행착오 기록):
-  * repo 의 generate_varid_to_rsid_map_file.R 은 Ensembl GRCh37 'variation' VCF 를
+  * 공개 repo 의 generate_varid_to_rsid_map_file.R 은 Ensembl GRCh37 'variation' VCF 를
     받는데 그건 1000G 가 아니라 dbSNP 전체다. chr1 만 8,370만 변이 -> 출력 2GB,
     22개면 40GB 라 현실적이지 않았다.
   * 1000G 의 sites-only 파일(ALL.wgs...v5c...sites.vcf.gz, 1.46GB)은 가볍지만
@@ -40,8 +40,9 @@ build_rsid_map.py — 파이프라인이 요구하는 rsID <-> hg19 위치 맵 �
 """
 import os, sys, gzip, io, time, urllib.request
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT  = os.path.join(HERE, "rsid_maps_by_chr")
+# 이 파일은 tools/ 안에 있고, 데이터는 프로젝트 루트 기준이다.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT  = os.path.join(ROOT, "data", "rsid_maps_by_chr")
 URL = ("https://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606_b151_GRCh37p13/"
        "VCF/00-common_all.vcf.gz")
 ACGT = {"A", "C", "G", "T"}
@@ -60,7 +61,7 @@ def build_all():
     t = time.time()
     # 스트리밍은 중간에 끊기면(EOFError) 처음부터 다시 해야 해서,
     # 디스크에 먼저 받고(curl 이어받기) 파싱한다.
-    tmpdir = os.path.join(HERE, "_vcf_tmp"); os.makedirs(tmpdir, exist_ok=True)
+    tmpdir = os.path.join(ROOT, "data", "_vcf_tmp"); os.makedirs(tmpdir, exist_ok=True)
     vcf = os.path.join(tmpdir, "dbsnp_common_grch37.vcf.gz")
     if not (os.path.exists(vcf) and os.path.getsize(vcf) > 1_500_000_000):
         print("[get ] " + URL, flush=True)

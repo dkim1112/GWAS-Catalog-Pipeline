@@ -10,11 +10,12 @@ validate_inputs.py — 폴더 상태를 점검한다. 파이프라인 돌리기 
      * 형질 파일은 OR->BETA 변환 경로가 없으므로 BETA+SE 가 없으면 그 열이 조용히 빠진다.
        여기서 미리 잡는다.
   3. sample_size 누락 행
-  4. trait_gwas 행 수가 47인가
+  4. trait_gwas 행 수 (참고용 출력. 원 논문 47열 중 3열 미확보 -> 기대값 44)
 
 사용법
-  python3 validate_inputs.py          # 점검
-  python3 validate_inputs.py --paths /절대/경로  # full_path의 앞부분을 이 경로로 바꿔 저장
+  cd <프로젝트 루트>
+  python3 tools/validate_inputs.py                 # 점검
+  python3 tools/validate_inputs.py --paths $PWD    # full_path 를 이 경로 기준 절대경로로 다시 씀
 """
 import os, sys, gzip, io
 
@@ -23,8 +24,9 @@ try:
 except ImportError:
     sys.exit("openpyxl 필요:  pip install openpyxl")
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-XLSX = os.path.join(HERE, "manifest.xlsx")
+# 이 파일은 tools/ 안에 있고, 매니페스트와 데이터는 프로젝트 루트 기준이다.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+XLSX = os.path.join(ROOT, "manifest.xlsx")
 
 EA_NAMES = {"Effect_Allele_PH", "Effect_Allele", "effect_allele", "A1", "EA",
             "Allele1", "allele1", "ALLELE1", "Tested_Allele"}
@@ -68,8 +70,8 @@ def check_cols(cols):
 
 
 def rewrite_paths(new_root):
-    # 매니페스트의 full_path 는 항상 <new_root>/sumstats_converted/<basename> 으로 재설정.
-    # convert_sumstats.py 가 항상 sumstats_converted/ 로 쓰기 때문에 basename 만 보존하면 충분.
+    # 매니페스트의 full_path 는 항상 <new_root>/data/sumstats_converted/<basename> 으로 재설정.
+    # convert_sumstats.py 가 항상 data/sumstats_converted/ 로 쓰기 때문에 basename 만 보존하면 충분.
     # (이전 버전은 "/sumstats/" 문자열 split 에 의존해 잘못된 경로가 나오는 버그가 있었음.)
     wb = openpyxl.load_workbook(XLSX)
     for sh in ("main_gwas", "trait_gwas"):
@@ -80,9 +82,9 @@ def rewrite_paths(new_root):
             v = ws.cell(r, ci).value
             if v:
                 ws.cell(r, ci).value = os.path.join(
-                    new_root, "sumstats_converted", os.path.basename(v))
+                    new_root, "data", "sumstats_converted", os.path.basename(v))
     wb.save(XLSX)
-    print(f"full_path 를 {new_root}/sumstats_converted/ 기준으로 다시 썼습니다.")
+    print(f"full_path 를 {new_root}/data/sumstats_converted/ 기준으로 다시 썼습니다.")
 
 
 def main():
@@ -111,7 +113,7 @@ def main():
             p = r[ip]
             if isz is not None and not r[isz]:
                 nosize.append(name)
-            ap = p if os.path.isabs(p) else os.path.join(HERE, p.lstrip("./"))
+            ap = p if os.path.isabs(p) else os.path.join(ROOT, p.lstrip("./"))
             if not os.path.exists(ap):
                 missing.append((sh, name, p))
                 continue
@@ -128,7 +130,7 @@ def main():
     n_trait = sum(1 for r in list(wb["trait_gwas"].iter_rows(values_only=True))[1:] if r and r[0])
 
     print("=" * 66)
-    print(f"매니페스트 행 {total}개  (trait_gwas {n_trait}개 — 기대값 47)")
+    print(f"매니페스트 행 {total}개  (trait_gwas {n_trait}개 — 기대값 44, 원 논문 47열 중 3열 미확보)")
     print(f"  통과            {ok}")
     print(f"  파일 없음       {len(missing)}")
     print(f"  컬럼 문제       {len(badcols)}")

@@ -3,7 +3,7 @@
 """
 convert_sumstats.py — 내려받은 원본 요약통계를 파이프라인 포맷으로 변환.
 
-파이프라인 요구 포맷 (README + prep_bNMF_2025.R):
+파이프라인 요구 포맷 (docs/INPUTS.md + prep_bNMF_2025.R):
     VAR_ID            CHR_POS_REF_ALT (hg19, 염색체는 숫자)
     Effect_Allele_PH  효과 대립유전자
     BETA, SE          (형질 파일은 OR->BETA 변환 경로가 없으므로 필수)
@@ -32,19 +32,20 @@ convert_sumstats.py — 내려받은 원본 요약통계를 파이프라인 포�
     BETA=z, SE=1 로 넣으면 z 가 그대로 보존된다. 로그에 남긴다.
   * GIANT 파일은 확장자가 .gz 이지만 실제로는 tar.gz 인 경우가 있어 자동 판별한다.
 
-사용법
-  python3 convert_sumstats.py --index      # 맵을 sqlite 로 색인 (1회, 수 분)
-  python3 convert_sumstats.py              # sumstats/ -> sumstats_converted/
-  python3 convert_sumstats.py fg bmi       # 특정 열만
+사용법 (프로젝트 루트에서)
+  python3 tools/convert_sumstats.py --index   # 맵을 sqlite 로 색인 (1회, 수 분)
+  python3 tools/convert_sumstats.py           # data/sumstats/ -> data/sumstats_converted/
+  python3 tools/convert_sumstats.py fg bmi    # 특정 열만
 """
 import os, sys, gzip, csv, sqlite3, tarfile, io, time, glob, itertools
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-MAPD = os.path.join(HERE, "rsid_maps_by_chr")
-DB   = os.path.join(HERE, "_rsid_map.sqlite")
-SRC  = os.path.join(HERE, "sumstats")
-DST  = os.path.join(HERE, "sumstats_converted")
-MAN  = os.path.join(HERE, "inputs_manifest.csv")
+# 이 파일은 tools/ 안에 있고, 데이터는 프로젝트 루트 기준이다.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MAPD = os.path.join(ROOT, "data", "rsid_maps_by_chr")
+DB   = os.path.join(ROOT, "data", "_rsid_map.sqlite")
+SRC  = os.path.join(ROOT, "data", "sumstats")
+DST  = os.path.join(ROOT, "data", "sumstats_converted")
+MAN  = os.path.join(ROOT, "inputs_manifest.csv")
 
 OUT_COLS = ["VAR_ID", "Effect_Allele_PH", "BETA", "SE", "P_VALUE", "N_PH"]
 
@@ -274,7 +275,7 @@ def main():
     if "--index" in sys.argv:
         build_index(); return
     if not os.path.exists(DB):
-        sys.exit("색인이 없습니다. 먼저:  python3 convert_sumstats.py --index")
+        sys.exit("색인이 없습니다. 먼저:  python3 tools/convert_sumstats.py --index")
 
     man = {r["key"]: r for r in csv.DictReader(open(MAN))}
     want = [a for a in sys.argv[1:] if not a.startswith("-")]
@@ -300,8 +301,8 @@ def main():
         except Exception as e:
             log(f"  !! {key}: {type(e).__name__}: {e}")
     log(f"\n{done}개 파일 처리")
-    os.makedirs(os.path.join(HERE, "logs"), exist_ok=True)
-    with open(os.path.join(HERE, "logs", "convert.log"), "w") as f:
+    os.makedirs(os.path.join(ROOT, "logs"), exist_ok=True)
+    with open(os.path.join(ROOT, "logs", "convert.log"), "w") as f:
         f.write("\n".join(lines) + "\n")
 
 

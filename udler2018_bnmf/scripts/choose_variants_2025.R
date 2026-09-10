@@ -131,7 +131,10 @@ get_biggest_gwas <- function(main_ss_filepath, vars_sig) {
   message("Getting p-values from largest GWAS...")
   
   # Write the list of VAR_IDs to a temporary file
-  tmp_file <- "all_varid.tmp"
+  # ---- LOCAL CHANGE: 원본은 작업 폴더에 all_varid.tmp 를 남겼다. 세션 tempdir 로
+  # 옮기고 함수 종료 시 지운다.
+  tmp_file <- file.path(tempdir(), "all_varid.tmp")
+  on.exit(unlink(tmp_file), add = TRUE)
   write_lines(vars_sig2$VAR_ID, tmp_file)
   
   # Retrieve header from the compressed file.  
@@ -229,10 +232,12 @@ ld_pruning <- function(gwas_variants, rsID_map_file, my_token,
   # prune to a set of independent variants based on some LD threshold
   # Leverage the LDlinkR package to fetch LD relationships for a set of input SNPs
   
-  write(gwas_variants$VAR_ID, "all_gwas_varid.tmp")
+  varid_tmp <- file.path(tempdir(), "all_gwas_varid.tmp")   # LOCAL CHANGE: was "./all_gwas_varid.tmp"
+  on.exit(unlink(varid_tmp), add = TRUE)
+  write(gwas_variants$VAR_ID, varid_tmp)
   
   print("Grepping for VAR_IDs in rsID map...")
-  all_var_df <- fread(cmd=paste0("grep -wFf all_gwas_varid.tmp ", rsID_map_file),
+  all_var_df <- fread(cmd=paste0("grep -wFf ", varid_tmp, " ", rsID_map_file),
                       header=F, col.names=c("VAR_ID", "rsID"),
                       data.table=F, stringsAsFactors=F) %>%
     separate(VAR_ID, into=c("CHR", "POS", "REF", "ALT"), sep="_", remove=F) %>%
@@ -245,7 +250,6 @@ ld_pruning <- function(gwas_variants, rsID_map_file, my_token,
 
   print(paste("Num. SNPs mapped to rsID:",nrow(all_var_df)))
   
-  # system("rm all_gwas_varid.tmp")
   
   pruned_vars <- c()
   ld_mats <- c()
@@ -325,10 +329,12 @@ ld_pruning <- function(gwas_variants, rsID_map_file, my_token,
 }
 
 ld_pruning_topLD_api <-  function(gwas_variants, api_path, rsID_map_file, r2=0.1, population="EUR") {
-  write(gwas_variants$VAR_ID, "all_gwas_varid.tmp")
+  varid_tmp <- file.path(tempdir(), "all_gwas_varid.tmp")   # LOCAL CHANGE: was "./all_gwas_varid.tmp"
+  on.exit(unlink(varid_tmp), add = TRUE)
+  write(gwas_variants$VAR_ID, varid_tmp)
 
   print("Grepping for VAR_IDs in rsID map...")
-  all_var_df <- fread(cmd=paste0("grep -wFf all_gwas_varid.tmp ", rsID_map_file),
+  all_var_df <- fread(cmd=paste0("grep -wFf ", varid_tmp, " ", rsID_map_file),
                       header=F, col.names=c("VAR_ID", "rsID"),
                       data.table=F, stringsAsFactors=F) %>%
     separate(VAR_ID, into=c("CHR", "POS", "REF", "ALT"), sep="_", remove=F) %>%
@@ -345,9 +351,10 @@ ld_pruning_topLD_api <-  function(gwas_variants, api_path, rsID_map_file, r2=0.1
       print(sprintf("Getting LD for CHR %i (%i variants)...", i, nrow(tmp)))
       rsID_pairs <- combn(tmp$rsID, 2, FUN=paste, collapse=',')
       cat(sprintf("%i rsID combinations...\n\n", length(rsID_pairs)))
-      write(rsID_pairs, "to_prune_rsIDs.tmp")
-      
-      system(sprintf("%s -thres 0.0 -pop %s -maf 0.01 -inFile to_prune_rsIDs.tmp -outputLD outputLD_temp.txt -outputInfo outputInfo_temp.txt", api_path, population))
+      prune_tmp <- file.path(tempdir(), "to_prune_rsIDs.tmp")   # LOCAL CHANGE: was "./to_prune_rsIDs.tmp"
+      write(rsID_pairs, prune_tmp)
+
+      system(sprintf("%s -thres 0.0 -pop %s -maf 0.01 -inFile %s -outputLD outputLD_temp.txt -outputInfo outputInfo_temp.txt", api_path, population, prune_tmp))
       system("awk 'FNR>1' outputLD_temp.txt >> outputLD.txt")
       system("awk 'FNR>1' outputInfo_temp.txt >> outputInfo.txt")
 
@@ -626,7 +633,9 @@ count_traits_per_variant <- function(gwas_variants, ss_files) {
   # for traits to be clustered, output a data frame of sample sizes per variant-trait.
   
   print("Assessing variant missingness across traits...")
-  write(gwas_variants, "all_snps_varids.tmp")
+  snps_tmp <- file.path(tempdir(), "all_snps_varids.tmp")   # LOCAL CHANGE: was "./all_snps_varids.tmp"
+  on.exit(unlink(snps_tmp), add = TRUE)
+  write(gwas_variants, snps_tmp)
   
   rename_cols <- c(N_PH="N", N_PH="Neff")
   
@@ -636,7 +645,7 @@ count_traits_per_variant <- function(gwas_variants, ss_files) {
     headers <- as.character(fread(ss_files[i], nrows=1,
                                   data.table=F, stringsAsFactors=F, header=F))
     if (endsWith(ss_files[i],".gz")) {
-      df <- fread(cmd=sprintf("gzip -cd %s | fgrep -wf all_snps_varids.tmp ",ss_files[i]),
+      df <- fread(cmd=sprintf("gzip -cd %s | fgrep -wf %s ", ss_files[i], snps_tmp),
                   header=F,
                   col.names=headers,
                   data.table=F,
@@ -645,7 +654,7 @@ count_traits_per_variant <- function(gwas_variants, ss_files) {
       
       
     } else {
-      df <- fread(cmd=sprintf("fgrep -wf all_snps_varids.tmp %s ",ss_files[i]),
+      df <- fread(cmd=sprintf("fgrep -wf %s %s ", snps_tmp, ss_files[i]),
                   header=F,
                   col.names=headers,
                   data.table=F,
@@ -680,7 +689,8 @@ count_traits_per_variant_2025 <- function(gwas_variants, ss_files) {
   message("Assessing variant missingness across traits...")
   
   # Write variant IDs to a temporary file (used by the external grep command)
-  tmp_file <- "all_snps_varids.tmp"
+  tmp_file <- file.path(tempdir(), "all_snps_varids.tmp")   # LOCAL CHANGE: was "./all_snps_varids.tmp"
+  on.exit(unlink(tmp_file), add = TRUE)
   writeLines(gwas_variants, con = tmp_file)
   
   # Use future_lapply to process each summary stats file in parallel
@@ -930,7 +940,7 @@ find_variants_needing_proxies <- function(gwas_variant_df,
 }
 
 choose_proxies <- function(need_proxies,
-                           rsid_map_dir = "rsid_maps_by_chr",
+                           rsid_map_dir = file.path("data", "rsid_maps_by_chr"),
                            pruned_variants,
                            zmat_fullset,           # matrix/data frame with rownames in "CHR:POS" format
                            token,                  # LDlink API token (Sys.getenv("LDLINK_TOKEN"))
@@ -971,6 +981,14 @@ choose_proxies <- function(need_proxies,
       select(rsID, proxy_rsID = RS_Number, r2 = R2)
   } else {
     proxy_df <- data.frame(rsID = character(), proxy_rsID = character(), r2 = numeric())
+  }
+
+  # ---- LOCAL CHANGE: LDlinkR 은 cwd 에만 쓸 수 있으므로, 읽은 뒤 결과 폴더로 옮겨
+  # 프로젝트 루트에 남지 않게 한다.
+  if (file.exists(proxy_out_file) && exists("main_dir")) {
+    diag_dir <- file.path(main_dir, "proxy_diagnostics")
+    dir.create(diag_dir, recursive = TRUE, showWarnings = FALSE)
+    file.rename(proxy_out_file, file.path(diag_dir, basename(proxy_out_file)))
   }
 
   message(sprintf("Found %i potential proxies for the %i queried SNPs.", nrow(proxy_df), nrow(need_proxies)))
@@ -1088,8 +1106,12 @@ choose_proxies <- function(need_proxies,
   message(sprintf("No adequate proxies found for %d variants.", length(no_proxies_found)))
   
   if (length(no_proxies_found) > 0) {
-    write(no_proxies_found, "no_proxies_found.txt")
-    message("See no_proxies_found.txt for a list of these variants.")
+    # ---- LOCAL CHANGE: 결과 폴더 밑 proxy_diagnostics/ 로 (원본은 작업 폴더 루트)
+    diag_dir <- if (exists("main_dir")) file.path(main_dir, "proxy_diagnostics") else "."
+    dir.create(diag_dir, recursive = TRUE, showWarnings = FALSE)
+    np_file <- file.path(diag_dir, "no_proxies_found.txt")
+    write(no_proxies_found, np_file)
+    message("See ", np_file, " for a list of these variants.")
   }
 
   # ==========================================================

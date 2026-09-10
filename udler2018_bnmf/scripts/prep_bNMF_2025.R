@@ -559,7 +559,14 @@ prep_z_matrix <- function(z_mat, N_mat,
                           keep_my_traits=NULL,
                           rm_traits=NULL,
                           pval_cutoff=NULL,
-                          nonneg=T) {
+                          nonneg=T,
+                          out_dir=NULL) {
+
+  # ---- LOCAL CHANGE: 중간 산출물을 작업 폴더 루트가 아니라 결과 폴더에 쓴다.
+  # 원본은 "./trait_cor_mat.txt" / "scaled_filtered_zmat.csv" 로 하드코딩되어
+  # 프로젝트 루트를 오염시키고, 여러 version 을 돌리면 서로 덮어썼다.
+  if (is.null(out_dir)) out_dir <- if (exists("main_dir")) main_dir else "."
+  dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
   
   # Given a matrix of z-scores (N_variants x M_traits) and vector of median
   # sample sizes per trait:
@@ -618,7 +625,7 @@ prep_z_matrix <- function(z_mat, N_mat,
   cat(sprintf("\n\nPrune traits by correlation (remove traits with Pearson |r| > %.2f)\n",
               corr_cutoff))
   trait_cor_mat <- cor(z_mat, use="pairwise.complete.obs")  # Trait-trait correlation matrix
-  write.table(trait_cor_mat,"./trait_cor_mat.txt", sep="\t")
+  write.table(trait_cor_mat, file.path(out_dir, "trait_cor_mat.txt"), sep="\t")
   
   # sort by max(z) instead of min(pval)
   remaining_traits <- names(sort(apply(z_mat, 2, max, na.rm=T),decreasing = T))
@@ -695,7 +702,7 @@ prep_z_matrix <- function(z_mat, N_mat,
   print("Save matrix before splitting into non-negative...")
   data.frame(z_mat) %>%
     rownames_to_column('variant') %>%
-    write_csv("scaled_filtered_zmat.csv")
+    write_csv(file.path(out_dir, "scaled_filtered_zmat.csv"))
   
   # Expand into N x 2M non-negative matrix
   if (nonneg==T) {
