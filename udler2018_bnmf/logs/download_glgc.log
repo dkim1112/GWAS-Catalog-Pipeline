@@ -1,0 +1,10 @@
+=== 시작 2026. 09. 09. (수) 16:03:02 KST ===
+[HDL] -> sumstats/hdl.txt.gz
+  OK  57M  2447442행  (시도 1)
+[LDL] -> sumstats/ldl.txt.gz
+  OK  57M  2437752행  (시도 1)
+[TC] -> sumstats/tc.txt.gz
+  OK  57M  2446982행  (시도 1)
+[TG] -> sumstats/tg.txt.gz
+  OK  57M  2439433행  (시도 1)
+=== 종료 2026. 09. 09. (수) 16:28:05 KST ===

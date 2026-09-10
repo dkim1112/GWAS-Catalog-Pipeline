@@ -1,0 +1,46 @@
+[1/4] 원본 확인
+  hdl     59.0 MB
+  ldl     58.9 MB
+  tc      59.1 MB
+  tg      58.9 MB
+[2/4] inputs_manifest.csv 갱신
+  4개 행 갱신
+[3/4] 포맷 변환 (4개, 각 10분 내외)
+  OK hdl          [generic   ] 2,282,178행 변환 / 165,263행 제외 -> hdl.tsv.gz
+  OK ldl          [generic   ] 2,273,484행 변환 / 164,267행 제외 -> ldl.tsv.gz
+  OK tc           [generic   ] 2,281,596행 변환 / 165,385행 제외 -> tc.tsv.gz
+  OK tg           [generic   ] 2,275,087행 변환 / 164,345행 제외 -> tg.tsv.gz
+
+4개 파일 처리
+[4/4] manifest.xlsx 추가 + 점검
+==================================================================
+매니페스트 행 45개  (trait_gwas 44개 — 기대값 47)
+  통과            45
+  파일 없음       0
+  컬럼 문제       0
+  sample_size 없음 0
+==================================================================
+
+→ 준비 완료.
+  [add ] hdl  N(중앙값)=94,302
+  [add ] ldl  N(중앙값)=89,880
+  [add ] tc  N(중앙값)=94,586
+  [add ] tg  N(중앙값)=91,004
+
+  4행 추가 -> trait_gwas 총 44행
+
+
+------------------------------------------------------------------
+다음 단계
+형질이 늘었으므로 z 행렬이 바뀝니다. 4절(fetch_summary_stats)부터
+다시 돌려야 합니다. 변이 목록(pruned_vars)은 udler_substitute.R 이
+매번 refs/udler2018_variants.csv 에서 새로 만들므로 재실행 부담 없음.
+
+  R
+  > version <- "udler2018_eur_v2"     # v1 과 섞이지 않게
+  > source("scripts/main_script_example.R")  # Section 0-1
+  > source("scripts/udler_substitute.R")     # Section 2-3-4.1 대체
+  > # 이후 Section 4.2 부터 순서대로
+
+v1 결과는 archive_v1/ 에 있습니다 (대조용).
+------------------------------------------------------------------

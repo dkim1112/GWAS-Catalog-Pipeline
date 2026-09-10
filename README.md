@@ -10,38 +10,48 @@ Crohn's Disease(CD)의 유전적 서브타입을 bNMF로 정의하기 위한 **�
 ```
 GWAS Catalog Pipeline/
   README.md                         <- (이 파일)
-  T2D_bNMF_재현_보고서.docx         <- ★ Udler 2018 재현 전 과정 보고서
+  T2D_bNMF_재현_보고서.docx         <- Udler 2018 재현 v1 보고서
   docs/generate_report.py           <- 위 docx 재생성 스크립트
   cd_survey/                        <- (1) CD 재료 수집·검증 (Step 1-2)
     src/                            코드 5개
     outputs/                        생성 CSV
-  udler2018_bnmf/                   <- (2) T2D bNMF 재현 (Step 3, 실행 완료)
-    README.md                       이 폴더 전용 상세 문서
-    RUN_GUIDE.md                    서버 준비 + R 파이프라인 실행 가이드
-    build_rsid_map.py               rsID <-> hg19 위치 맵 생성
-    convert_sumstats.py             요약통계 -> 파이프라인 포맷 변환
-    validate_inputs.py              실행 전 점검 (bug fix 완료)
-    download_inputs.sh              자동 다운로드
-    manifest.xlsx                   파이프라인 입력 매니페스트 (35 trait)
+  udler2018_bnmf/                   <- (2) T2D bNMF 재현 (Step 3, v2 실행 완료)
+    README.md                       이 폴더 전용 개요
+    run_pipeline.R                  실행 드라이버
+    manifest.xlsx                   파이프라인 입력 매니페스트 (44 trait)
     inputs_manifest.csv             형질별 출처/URL/상태
+    docs/                           SETUP / RUN / INPUTS / RESULTS
     scripts/                        bnmf-clustering repo 사본 + udler_substitute.R
-    refs/                           Udler 정답지 (S1/S3/S4)
-    hg19ToHg38.over.chain           post_bNMF liftover용
+    tools/                          입력 준비 (다운로드·rsID 맵·변환·점검)
+    refs/                           Udler 정답지 (S1/S3/S4) + liftover chain
+    results/                        udler2018_eur_v1/ , udler2018_eur_v2/
+    reports/                        v2 보고서 + 그림
+    data/                           대용량 입력 (git 미포함, 서버에서 생성)
 ```
 
 ## 실행 완료 요약 (Udler 2018 재현)
 
-**현재 상태: bNMF 실행 완료, Beta-Cell 클러스터 재현 성공.** 상세 보고서 `T2D_bNMF_재현_보고서.docx` 참조.
+**현재 상태: v2 (44 형질) 실행 완료. Udler 5개 클러스터 중 4개 재현.**
+상세는 `udler2018_bnmf/docs/RESULTS.md` 와 `udler2018_bnmf/reports/` 참조.
 
 - 서버: Kimlab-server (`/BiO2/home/daniel/udler2018_bnmf`)
-- 최종 데이터: 71 변이 × 26 unique trait (bNMF 입력)
-- bNMF K: 3 (96/100 replicate)
-- Udler S4 대조: **K3 ↔ Beta-cell r=0.92** (강한 재현), K2 ↔ Liver/Lipid r=0.38 (약함, 지질 부재), K1 미매칭
+- 최종 데이터: 77 변이 × 31 unique trait (62 feature)
+- bNMF K: ARD 가 선택 — K=4 (70/100), K=5 (27/100)
+- Udler 정답지 대조 (형질축 r / 변이축 r):
+  Beta-cell **0.92/0.59**, Liver/Lipid **0.96/0.93**, Obesity **0.69/0.65**,
+  Proinsulin 0.24/**0.69** (변이축만), Lipodystrophy 0.32/0.38 (Obesity 축에 흡수)
+- v1(35 형질)은 1개만 재현됐고, 차이는 **입력 열 9개 추가**(지질 4 + CHARGE 지방산 5)뿐.
+  `T2D_bNMF_재현_보고서.docx` 는 그 v1 시점 보고서.
+
+> **아직 검증 안 된 모듈**: `choose_variants_2025.R` (변이 선택). 이번 재현은 논문의
+> 변이 94개를 직접 넣어 우회했음. **CD 에는 정답지가 없으므로 이 모듈을 반드시 써야 하고,
+> 별도 검증이 필요함.**
 
 ## 로컬 ↔ 서버 동기화
 
 **원칙**: 코드/문서는 로컬에서 편집 → 서버로 push. 실행 결과는 서버에서 로컬로 pull.  
-대용량 원본/변환본/rsID 맵 (~5GB) 은 서버에만 (재생성 가능하니 git 미포함).
+대용량 입력 `udler2018_bnmf/data/` (~8GB) 와 R 체크포인트(`*.RData`) 는 서버에만
+(재생성 가능하니 git 미포함).
 
 ### 명령 두 개
 ```bash
@@ -49,7 +59,9 @@ bash sync_up.sh      # 로컬 → 서버: 코드/문서/매니페스트 push (�
 bash sync_down.sh    # 서버 → 로컬: bNMF 결과 + 로그 pull
 ```
 
-`sync_down.sh` 실행 후 `git add udler2018_bnmf/udler2018_eur_v1_results/ udler2018_bnmf/logs/` 로 결과 기록.
+`sync_down.sh` 실행 후 `git add udler2018_bnmf/results/ udler2018_bnmf/logs/` 로 결과 기록.
+`sync_up.sh` 는 `--delete` 를 쓰므로 로컬에서 지운 파일이 서버에서도 지워집니다
+(`data/` 와 `*.RData` 는 exclude 라 안전).
 
 ### 무엇을 어느 쪽에 두는지
 
@@ -58,11 +70,11 @@ bash sync_down.sh    # 서버 → 로컬: bNMF 결과 + 로그 pull
 | 코드 (`.py` `.R` `.sh`) | ✓ | ✓ |
 | 매니페스트, refs, chain | ✓ | ✓ |
 | 문서 (README, docx) | ✓ (원본) | 일부 |
-| bNMF 결과 (`udler2018_eur_v1_results/`) | ✓ (백업) | ✓ (원본) |
+| bNMF 결과 (`results/`) | ✓ (백업) | ✓ (원본) |
 | 로그 (`logs/`) | ✓ | ✓ |
-| 원본 sumstats (2.5GB) | ✗ | ✓ |
-| 변환본 (1.1GB) | ✗ | ✓ |
-| rsID 맵 (1.15GB) | ✗ | ✓ |
+| 원본 sumstats (`data/sumstats/`, 3.5GB) | ✗ | ✓ |
+| 변환본 (`data/sumstats_converted/`, 1.3GB) | ✗ | ✓ |
+| rsID 맵 + sqlite (`data/`, 3.2GB) | ✗ | ✓ |
 | R 체크포인트 (`.RData`) | ✗ | ✓ |
 
 두 폴더는 **다른 목적**을 갖는 자매 프로젝트:
@@ -179,9 +191,9 @@ Smith 2024(Nat Med) · Pascat 2026(Nat Commun).
 기준 논문: Udler MS et al. PLoS Med 2018. doi:10.1371/journal.pmed.1002654
 파이프라인: https://github.com/gwas-partitioning/bnmf-clustering
 
-**현재 상태: 인풋 준비(1단계) 완료.** `validate_inputs.py` 가 36행 전부 통과.
-형질 열 35개(원 논문 47열에서 12개 제외: 하드 제외 7개 + CHARGE 접근 불가 5개)
-+ 질병 GWAS 1개 (DIAGRAMv3 Morris 2012). 자세한 내용은 `udler2018_bnmf/README.md` 참조.
+**현재 상태: v2 실행 완료.** `tools/validate_inputs.py` 가 45행 전부 통과.
+형질 열 44개(원 논문 47열에서 3개 제외) + 질병 GWAS 1개 (DIAGRAMv3 Morris 2012).
+자세한 내용은 `udler2018_bnmf/README.md` 와 그 폴더의 `docs/` 참조.
 
 ### 왜 이 폴더가 여기 있나
 
@@ -196,30 +208,34 @@ matrix를 만들 때 그대로 재사용.
 
 ```bash
 cd udler2018_bnmf
-bash download_inputs.sh              # 1) 자동 32개 (약 2.5GB)
-python3 build_rsid_map.py            # 2) rsID 맵 (약 4분, 1.15GB)
-python3 convert_sumstats.py --index  # 3) sqlite 색인
-python3 convert_sumstats.py          # 4) 포맷 변환 (약 40분)
-python3 validate_inputs.py --paths $PWD
-python3 validate_inputs.py           # "준비 완료" 확인
+bash tools/download_inputs.sh              # 1) 자동 41개 (약 3GB)
+python3 tools/build_rsid_map.py            # 2) rsID 맵 (약 4분, 1.15GB)
+python3 tools/convert_sumstats.py --index  # 3) sqlite 색인 (약 4분)
+python3 tools/convert_sumstats.py          # 4) 포맷 변환 (약 40분)
+python3 tools/validate_inputs.py --paths $PWD
+python3 tools/validate_inputs.py           # "준비 완료" 확인
+Rscript run_pipeline.R                     # 5) bNMF 실행 (약 4분)
 ```
 
-**대용량 산출물(2~4번 결과, `sumstats/`, `sumstats_converted/`, `rsid_maps_by_chr/`,
-sqlite)은 git에 커밋되지 않음** — `.gitignore` 에서 제외. 위 명령으로 재생성 가능.
+**대용량 산출물(`data/` 전체)은 git에 커밋되지 않음** — `udler2018_bnmf/.gitignore`
+에서 제외. 위 1~4번으로 재생성 가능.
 
-이후 서버에서 R 파이프라인 실행은 `udler2018_bnmf/RUN_GUIDE.md` 참조.
+절차 상세는 `udler2018_bnmf/docs/SETUP.md` (서버 준비) 와 `docs/RUN.md` (실행) 참조.
 
 ### 우리 입력이 원 논문과 다른 점 (재현 결과 해석 시 필수)
 
-원 논문 47열 중 12열이 빠져 있음:
-- 하드 제외 7개: 아디포넥틴, 지질 4개 (`hdl` `ldl` `tc` `tg`), `leptinbmi`, `fi_bmi`
-- CHARGE 접근 불가 5개: 지방산 4개 (`n6_1821` `n6_1831` `n6_2031` `palmitoleic`), `dpa`
+원 논문 47열 중 **3열**이 빠져 있음 (v1 때는 12열이 빠졌음):
+- `adip` (아디포넥틴) — 배포처 404, Catalog 에 요약통계 없음
+- `leptinbmi` — Catalog 에서 leptin 과 accession 이 겹쳐 분리 불가
+- `fi_bmi` — Manning 2012 BMI interaction, Catalog 에 요약통계 없음
 
-특히 지질 4개는 Udler 의 **Liver/Lipid 클러스터**에 직접 영향을 줄 수 있으므로
-재현 여부는 클러스터별로 분리 판정:
-- Beta-Cell / Proinsulin / Obesity / Lipodystrophy — 재현 여부를 그대로 판정
-- Liver/Lipid — 입력 부족, 안 나와도 파이프라인 문제로 보기 어려움
-- CHARGE 지방산은 소수 클러스터에만 영향, 나중에 컨소시엄 승인 받으면 재실행 가능
+또 **지질 4개(`hdl` `ldl` `tc` `tg`) 는 출처가 다름** — Udler 가 쓴 ENGAGE 2015
+배포처가 죽어 GLGC Willer 2013 jointGwasMc 로 대체. **결과 대조 시 반드시 명시할 것.**
+
+v1(12열 결측) 에서 Liver/Lipid 가 r=0.38 로 안 나왔던 것은 그 클러스터 가중치의
+56%가 없었기 때문이었고, v2 에서 결측이 8%로 줄자 r=0.96 으로 회복됨.
+**재현 실패의 원인이 파이프라인이 아니라 입력이었음을 보여주는 대조.**
+상세는 `udler2018_bnmf/docs/INPUTS.md` / `docs/RESULTS.md`.
 
 ---
 
@@ -227,5 +243,7 @@ sqlite)은 git에 커밋되지 않음** — `.gitignore` 에서 제외. 위 명�
 
 1. `cd_survey/`: 형질 축 **dedup**(같은 형질 중복 GWAS를 대표 1개로).
 2. `cd_survey/`: **LDSC 유전상관 스캔**(CD GWAS ↔ 형질) — 큐레이션 발굴 사각 보완.
-3. `udler2018_bnmf/`: 서버에서 파이프라인 실제 실행 → Udler 정답지와 대조.
+3. `udler2018_bnmf/`: **`choose_variants_2025.R` (변이 선택) 검증** — 이번 재현에서
+   유일하게 우회한 모듈. CD 에는 정답지 변이 리스트가 없어 반드시 필요함.
+   예: 더 큰 T2D GWAS 로 클럼핑을 돌려 Udler 94개와 얼마나 겹치는지 확인.
 4. CD로 확장: `udler2018_bnmf/` 변환기·검증기 재사용 + `cd_survey/` 매니페스트 → CD matrix.

@@ -1,0 +1,16 @@
+=== QUALITY CONTROL REPORT ===
+Generated: 2026-09-09 17:27:56.639019
+Version: udler2018_eur_v2
+
+VARIANT PROCESSING:
+  Pruned variants: 94
+  Proxies needed: 0
+  Proxies found: 0
+  Final variants: 77
+
+QUALITY CHECKS:
+  ✓ Missingness coverage: 81.9%
+  ✓ All high-missing captured: PASS
+  ✓ Variant accounting correct: PASS
+  ✓ All BETAs positive: PASS
+  ✓ No problematic variants in final set: FAIL

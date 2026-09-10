@@ -1,0 +1,1321 @@
+
+################################################################
+## Section 0-1: Setup & Manifest   (main_script_example.R 1-153행)
+## 2026-09-09 17:24:57
+################################################################
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:data.table’:
+
+    between, first, last
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: Matrix
+Loaded softImpute 1.4-3
+
+Loading required package: stringr
+
+Attaching package: ‘tidyr’
+
+The following object is masked from ‘package:softImpute’:
+
+    complete
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, pack, unpack
+
+The following object is masked from ‘package:magrittr’:
+
+    extract
+
+
+Attaching package: ‘purrr’
+
+The following object is masked from ‘package:magrittr’:
+
+    set_names
+
+The following object is masked from ‘package:data.table’:
+
+    transpose
+
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:data.table’:
+
+    hour, isoweek, isoyear, mday, minute, month, quarter, second, wday,
+    week, yday, year
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: generics
+
+Attaching package: ‘generics’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    prune
+
+The following object is masked from ‘package:lubridate’:
+
+    as.difftime
+
+The following object is masked from ‘package:dplyr’:
+
+    explain
+
+The following objects are masked from ‘package:base’:
+
+    as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
+    setequal, union
+
+
+Attaching package: ‘BiocGenerics’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+    unsplit, which.max, which.min
+
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:lubridate’:
+
+    second, second<-
+
+The following object is masked from ‘package:tidyr’:
+
+    expand
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, unname
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, rename
+
+The following objects are masked from ‘package:data.table’:
+
+    first, second
+
+The following object is masked from ‘package:utils’:
+
+    findMatches
+
+The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+Loading required package: IRanges
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:lubridate’:
+
+    %within%
+
+The following object is masked from ‘package:purrr’:
+
+    reduce
+
+The following objects are masked from ‘package:dplyr’:
+
+    collapse, desc, slice
+
+The following object is masked from ‘package:data.table’:
+
+    shift
+
+Loading required package: Seqinfo
+
+Attaching package: ‘GenomicRanges’
+
+The following object is masked from ‘package:magrittr’:
+
+    subtract
+
+
+Attaching package: ‘vroom’
+
+The following objects are masked from ‘package:readr’:
+
+    as.col_spec, col_character, col_date, col_datetime, col_double,
+    col_factor, col_guess, col_integer, col_logical, col_number,
+    col_skip, col_time, cols, cols_condense, cols_only, date_names,
+    date_names_lang, date_names_langs, default_locale, fwf_cols,
+    fwf_empty, fwf_positions, fwf_widths, locale, output_column,
+    problems, spec
+
+Loading required package: AnnotationDbi
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+
+Attaching package: ‘AnnotationDbi’
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+Loading required package: OrganismDbi
+Loading required package: GenomicFeatures
+Loading required package: GO.db
+
+Loading required package: org.Hs.eg.db
+
+Loading required package: TxDb.Hsapiens.UCSC.hg19.knownGene
+
+---- 점검: 매니페스트 ----
+  version      : udler2018_eur_v2
+  trait 수     : 44   (기대값 44)
+  main GWAS    : ./sumstats_converted/t2d_diagram_v3.tsv.gz
+  파일 44개 전부 존재 OK
+  결과 폴더    : /BiO2/home/daniel/udler2018_bnmf/udler2018_eur_v2_results
+
+################################################################
+## Section 2-3-4.1 대체: udler_substitute.R
+################################################################
+
+=== udler_substitute.R: replacing Section 2-3-4.1 ===
+Loaded 94 Udler 2018 curated variants.
+Loading primary GWAS (DIAGRAM v3) into memory and deriving SNP/REF/ALT ...
+Primary GWAS loaded: 2287052 rows.
+87 / 94 Udler variants have P-value from DIAGRAM (rest: 1e-10 placeholder).
+fetch_input has 94 variants.
+=== substitute done. 이제 main_script_example.R Section 4.2 를 실행하되,
+    fetch_summary_stats(gwas_ss_file = main_gwas_ready, ...) 로 호출하세요. ===
+
+---- 점검: 변이 집합 ----
+  pruned_vars  : 94   (기대값 94)
+  fetch_input  : 94
+
+################################################################
+## Section 4.2-6: Fetch -> Missingness -> Proxy 판정   (main_script_example.R 306-450행)
+## 2026-09-09 17:26:28
+################################################################
+
+[1] "Writing SNP list (chr:pos) to file for grepping..."
+[1] "Filtering pre-loaded primary GWAS data frame..."
+[1] "89 of 94 SNPs found in primary GWAS."
+[1] "Standardizing primary GWAS: Deriving Risk/Non-risk Alleles..."
+[1] "89 variants available after merging with primary GWAS."
+[1] "77 variants remain after p-value and risk allele filtering."
+Processing bl...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 7_92383888_A_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for bl
+Processing bmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 12_126890980_G_A
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for bmi
+Processing bodyfat...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_9960259_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 74 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  74 SNPs after joining with input
+  Before allele matching: 74 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 74
+  Final: 74 SNPs for bodyfat
+Processing bw...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10000018_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for bw
+Processing cir...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10557873_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for cir
+Processing di...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10557873_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for di
+Processing fg...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 7_92383888_A_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for fg
+Processing fg2hr...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10557873_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for fg2hr
+Processing fi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 1_162736463_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for fi
+Processing hba1c...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 7_92383888_A_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for hba1c
+Processing height...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_9960129_A_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for height
+Processing hip_f...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 14_30501885_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for hip_f
+Processing hip_m...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 11_69275865_G_A
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 75
+  Final: 75 SNPs for hip_m
+Processing hip...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 5_122683996_T_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for hip
+Processing hipadjbmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 8_126486409_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for hipadjbmi
+Processing homab...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 7_92383888_A_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for homab
+Processing homair...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 7_92383888_A_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for homair
+Processing incr30...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10557873_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for incr30
+Processing ins30_bmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10557873_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for ins30_bmi
+Processing isi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_57890522_T_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for isi
+Processing isibmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_57890522_T_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for isibmi
+Processing leptin...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 7_92383888_A_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for leptin
+Processing proins...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_10557873_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for proins
+Processing sat...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_14143636_T_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for sat
+Processing urate...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 1_166367755_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 74 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  74 SNPs after joining with input
+  Before allele matching: 74 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 74
+  Final: 74 SNPs for urate
+Processing vat_adjbmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_14143636_T_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for vat_adjbmi
+Processing vat...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_14143636_T_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for vat
+Processing wc_female...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 18_21075441_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 75
+  Final: 75 SNPs for wc_female
+Processing wc_male...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 12_41852838_G_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 75
+  Final: 75 SNPs for wc_male
+Processing wc...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_13685188_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for wc
+Processing wcadjbmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 3_12806142_T_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for wcadjbmi
+Processing whr_f...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 6_139838419_C_A
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for whr_f
+Processing whr_m...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 1_8663821_G_A
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 75
+  Final: 75 SNPs for whr_m
+Processing whr...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_94481995_T_C
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for whr
+Processing whradjbmi...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 4_145529703_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 76
+  Final: 76 SNPs for whradjbmi
+Processing dpa...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 6_130840091_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for dpa
+Processing palmitoleic...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 6_130840091_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for palmitoleic
+Processing n6_1821...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 6_130840091_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for n6_1821
+Processing n6_1831...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 6_130840091_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for n6_1831
+Processing n6_2031...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 6_130840091_A_G
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 77 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  77 SNPs after joining with input
+  Before allele matching: 77 SNPs
+  Sample trait_alleles: C_T
+  Sample gwas_alleles: C_T
+  Allele matches: 77
+  Final: 77 SNPs for n6_2031
+Processing hdl...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_9960259_C_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 76
+  Final: 76 SNPs for hdl
+Processing ldl...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_9960129_A_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for ldl
+Processing tc...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_9960129_A_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 75 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  75 SNPs after joining with input
+  Before allele matching: 75 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 75
+  Final: 75 SNPs for tc
+Processing tg...
+  Input format: chr_prefix=FALSE, colon=TRUE, underscore=FALSE, varid=FALSE
+  Trait file format (VAR_ID): chr_prefix=FALSE, colon=FALSE, underscore=FALSE, varid=TRUE
+  Sample from trait file: 10_9960129_A_T
+  Converted search terms. Example: 9:136149229 -> 9_136149229
+  Found 76 rows after grep
+  SNP format check: dt has chr=FALSE, input has chr=FALSE
+  76 SNPs after joining with input
+  Before allele matching: 76 SNPs
+  Sample trait_alleles: G_T
+  Sample gwas_alleles: G_T
+  Allele matches: 76
+  Final: 76 SNPs for tg
+    trait         SNP          z  N_PH   P_VALUE
+   <char>      <char>      <num> <num>     <num>
+1:     bl 9:136149229  0.1724138 28000 8.651e-01
+2:     bl 4:185714289  1.3100775 28000 1.894e-01
+3:     bl  3:64705365 -2.5465116 28000 1.089e-02
+4:     bl 3:123065778  4.3818182 28000 1.173e-05
+5:     bl  8:41519248  0.7281553 28000 4.625e-01
+6:     bl  5:55806751 -1.1200000 28000 2.624e-01
+Expanding using dcast!
+  Pivoting 3333 trait-SNP pairs to wide format ...
+[1] "Done!"
+QC Check 1: Missingness calculation coverage
+  ✓ Missingness calculated for 77/94 pruned variants (81.9%)
+Warning in eval(ei, envir) :
+  Less than 95% of pruned variants have missingness data!
+=== IDENTIFYING VARIANTS NEEDING PROXIES ===
+[1] "Choosing variants in need of proxies..."
+[1] "...3 strand-ambiguous variants"
+[1] "...1 multi-allelic variants"
+[1] "...19 variants with excessive missingness"
+[1] "...23 unique variants in total"
+QC Check 2: High-missingness variant detection
+  ✓ All high-missingness variants correctly identified for proxy search
+QC Check 3: Problematic variant exclusion
+  ✓ No ambiguous or multiallelic variants in non-proxy set
+
+---- Section 7 건너뜀 — 94개 전부 original 로 유지 ----
+  프록시 대상으로 판정된 변이 : 23 (갈아끼우지 않고 그대로 사용)
+
+################################################################
+## Section 8-13: Assembly -> Align -> Impute -> bNMF   (main_script_example.R 475-791행)
+## 2026-09-09 17:27:56
+################################################################
+
+  No proxies found; proxy_df will be empty.
+  Written rsID map with 94 variants to rsID_map.txt
+QC Check 4: Variant accounting
+  Started with: 94 pruned variants
+  Needed proxies: 0 variants
+  Found proxies: 0 variants
+  Expected final: 94 variants
+  Actual final: 94 variants
+  ✓ Variant accounting correct
+=== GWAS ALIGNMENT ===
+  Written aligned GWAS summary stats with 77 variants to alignment_GWAS_summStats.csv
+QC Check 5: Beta alignment
+Warning in eval(ei, envir) :
+    ✗ Beta alignment issues: 2 NA values, all positive = TRUE
+QC Check 6: Final dataset quality
+Warning in eval(ei, envir) :
+    ✗ Final dataset contains 3 ambiguous and 1 multiallelic variants
+QC report written to: /BiO2/home/daniel/udler2018_bnmf/udler2018_eur_v2_results/quality_control_report.txt
+[1] "Imputing missing variant-trait data..."
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Warning in softImpute(zmat_cv, rank.max = 50, lambda = l, type = "svd") :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+Best lambda:7.60628306576967
+Warning in softImpute(zmat_preImputed, rank.max = 50, lambda = best_lambda,  :
+  rank.max should not exceed min(dim(x))-1; changed to  43
+[1] "Visualizing softImpute results..."
+[1] "0 missing values before pval pruning."
+[1] "Filtering traits w/ no pvalues below cutoff..."
+Removing traits with no variant having p < 6.494e-04:
+vat_adjbmi
+
+Prune traits by correlation (remove traits with Pearson |r| > 0.80)
+[1] "Initial number of traits: 43"
+[1] 43 43
+Correlated trait being removed for bmi:
+wc
+hip
+wc_male
+wc_female
+hip_f
+hip_m
+bodyfat
+
+[1] 35 35
+[1] 34 34
+[1] 33 33
+Correlated trait being removed for whr:
+whr_f
+
+[1] 31 31
+[1] 30 30
+[1] 29 29
+[1] 28 28
+[1] 27 27
+[1] 26 26
+[1] 25 25
+Correlated trait being removed for fi:
+homair
+
+[1] 23 23
+[1] 22 22
+[1] 21 21
+[1] 20 20
+[1] 19 19
+[1] 18 18
+Correlated trait being removed for cir:
+di
+ins30_bmi
+
+[1] 15 15
+[1] 14 14
+[1] 13 13
+[1] 12 12
+Correlated trait being removed for tc:
+ldl
+
+[1] 10 10
+[1] 9 9
+[1] 8 8
+[1] 7 7
+[1] 6 6
+[1] 5 5
+[1] 4 4
+[1] 3 3
+[1] 2 2
+Traits removed in pruning process:
+vat_adjbmi
+wc
+hip
+wc_male
+wc_female
+hip_f
+hip_m
+bodyfat
+whr_f
+homair
+di
+ins30_bmi
+ldl
+Number of remaining traits: 31
+
+
+[1] "Performing sample size adjustment..."
+[1] "Replacing remaining missing values with zero..."
+[1] "0 missing values were replaced."
+[1] "Save matrix before splitting into non-negative..."
+[1] "Expanding z-score matrix into non-negative matrix (N-variants x 2M-traits)..."
+Final matrix dimensions: 77 SNPs x 31 traits
+[1] "Running bNMF clustering procedure in parallel! (100 iterations)..."
+[1] "Using tolerance of 1.00e-06!"
+ITERATION 1 
+Iter 100: Error=7400.44, Delta=3.93355e-05, Active=4, Evidence=-4273.96
+Converged based on error stability
+ITERATION 2 
+Iter 100: Error=6597.53, Delta=0.00163577, Active=5, Evidence=-3961.73
+Iter 200: Error=6604.15, Delta=9.23744e-05, Active=5, Evidence=-3969.19
+Converged based on error stability
+ITERATION 3 
+Iter 100: Error=6604.63, Delta=0.000136412, Active=5, Evidence=-3969.3
+Converged based on error stability
+ITERATION 4 
+Iter 100: Error=7410.08, Delta=6.56261e-05, Active=4, Evidence=-4277.56
+Converged based on error stability
+ITERATION 5 
+Iter 100: Error=6606.59, Delta=7.53241e-05, Active=5, Evidence=-3969.27
+Converged based on error stability
+ITERATION 6 
+Iter 100: Error=6606.1, Delta=5.70823e-05, Active=5, Evidence=-3969.26
+Converged based on error stability
+ITERATION 7 
+Iter 100: Error=7409.94, Delta=8.03857e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 8 
+Iter 100: Error=7660.84, Delta=0.000186372, Active=4, Evidence=-4181.21
+Converged based on error stability
+ITERATION 9 
+Iter 100: Error=7409.66, Delta=1.30619e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 10 
+Iter 100: Error=7408.84, Delta=0.000247703, Active=4, Evidence=-4277.35
+Converged based on error stability
+ITERATION 11 
+Iter 100: Error=7407.51, Delta=0.000796294, Active=4, Evidence=-4277.28
+Converged based on error stability
+ITERATION 12 
+Iter 100: Error=8547.94, Delta=1.9801e-06, Active=3, Evidence=-4472.86
+Converged based on error stability
+ITERATION 13 
+Iter 100: Error=7409.79, Delta=4.1305e-05, Active=4, Evidence=-4277.54
+Converged based on error stability
+ITERATION 14 
+Iter 100: Error=7410.58, Delta=7.29468e-05, Active=4, Evidence=-4277.57
+Converged based on error stability
+ITERATION 15 
+Iter 100: Error=7664.83, Delta=0.000153219, Active=4, Evidence=-4181.2
+Iter 200: Error=7661.99, Delta=5.62337e-05, Active=4, Evidence=-4181.4
+Converged based on error stability
+ITERATION 16 
+Iter 100: Error=6605.86, Delta=4.83912e-05, Active=5, Evidence=-3969.34
+Converged based on error stability
+ITERATION 17 
+Iter 100: Error=8548.19, Delta=3.22315e-05, Active=3, Evidence=-4472.82
+Converged based on error stability
+ITERATION 18 
+Iter 100: Error=7410.29, Delta=4.54095e-05, Active=4, Evidence=-4277.57
+Converged based on error stability
+ITERATION 19 
+Iter 100: Error=7410.44, Delta=4.44137e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 20 
+Iter 100: Error=6603.21, Delta=0.000797094, Active=5, Evidence=-3969.06
+Converged based on error stability
+ITERATION 21 
+Iter 100: Error=7668.62, Delta=8.37855e-05, Active=4, Evidence=-4179.65
+Iter 200: Error=7665.12, Delta=5.84004e-05, Active=4, Evidence=-4181.08
+Converged based on error stability
+ITERATION 22 
+Iter 100: Error=7410.35, Delta=7.25918e-05, Active=4, Evidence=-4277.57
+Converged based on error stability
+ITERATION 23 
+Iter 100: Error=6602.61, Delta=0.0003368, Active=5, Evidence=-3969.13
+Iter 200: Error=6605.37, Delta=2.31923e-05, Active=5, Evidence=-3969.37
+Converged based on error stability
+ITERATION 24 
+Iter 100: Error=7410.63, Delta=5.74175e-05, Active=4, Evidence=-4277.59
+Converged based on error stability
+ITERATION 25 
+Iter 100: Error=6603.98, Delta=9.73884e-05, Active=5, Evidence=-3969
+Iter 200: Error=6605.41, Delta=2.46423e-05, Active=5, Evidence=-3969.35
+Converged based on error stability
+ITERATION 26 
+Iter 100: Error=6607.87, Delta=0.000271618, Active=5, Evidence=-3964.98
+Converged based on error stability
+ITERATION 27 
+Iter 100: Error=7410.27, Delta=5.84417e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 28 
+Iter 100: Error=8548.41, Delta=8.17717e-05, Active=3, Evidence=-4472.69
+Converged based on error stability
+ITERATION 29 
+Iter 100: Error=7409.63, Delta=7.50267e-05, Active=4, Evidence=-4277.57
+Converged based on error stability
+ITERATION 30 
+Iter 100: Error=7409.93, Delta=8.01857e-06, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 31 
+Iter 100: Error=6606.01, Delta=0.000109109, Active=5, Evidence=-3969.04
+Converged based on error stability
+ITERATION 32 
+Iter 100: Error=7683.32, Delta=0.00121883, Active=4, Evidence=-4179.17
+Iter 200: Error=7672.42, Delta=5.26833e-05, Active=4, Evidence=-4180.37
+Iter 300: Error=7666.05, Delta=9.13806e-05, Active=4, Evidence=-4181.13
+Converged based on error stability
+ITERATION 33 
+Iter 100: Error=7410.39, Delta=0.000208695, Active=4, Evidence=-4277.45
+Converged based on error stability
+ITERATION 34 
+Iter 100: Error=7409.68, Delta=4.89027e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 35 
+Iter 100: Error=7410.26, Delta=1.93419e-05, Active=4, Evidence=-4277.62
+Converged based on error stability
+ITERATION 36 
+Iter 100: Error=7410.44, Delta=6.806e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 37 
+Iter 100: Error=7410.22, Delta=6.0339e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 38 
+Iter 100: Error=7410.41, Delta=1.70338e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 39 
+Iter 100: Error=6600.35, Delta=0.000646221, Active=5, Evidence=-3969.02
+Iter 200: Error=6605.12, Delta=5.15132e-05, Active=5, Evidence=-3969.37
+Converged based on error stability
+ITERATION 40 
+Iter 100: Error=7671.61, Delta=0.000353037, Active=4, Evidence=-4179.94
+Iter 200: Error=7666.07, Delta=8.50195e-05, Active=4, Evidence=-4180.85
+Iter 300: Error=7663.19, Delta=0.000123306, Active=4, Evidence=-4181.22
+Iter 400: Error=7661.26, Delta=7.48172e-06, Active=4, Evidence=-4181.36
+Converged based on error stability
+ITERATION 41 
+Iter 100: Error=7405.89, Delta=0.00110826, Active=4, Evidence=-4276.95
+Converged based on error stability
+ITERATION 42 
+Iter 100: Error=6597.76, Delta=0.00187629, Active=5, Evidence=-3959.33
+Iter 200: Error=6600.31, Delta=0.000175166, Active=5, Evidence=-3968.39
+Iter 300: Error=6603.78, Delta=4.30315e-05, Active=5, Evidence=-3969.21
+Converged based on error stability
+ITERATION 43 
+Iter 100: Error=7411.11, Delta=8.56411e-05, Active=4, Evidence=-4277.01
+Converged based on error stability
+ITERATION 44 
+Iter 100: Error=7409.47, Delta=0.000135997, Active=4, Evidence=-4277.16
+Converged based on error stability
+ITERATION 45 
+Iter 100: Error=7409.96, Delta=0.000210143, Active=4, Evidence=-4277.03
+Converged based on error stability
+ITERATION 46 
+Iter 100: Error=7407.59, Delta=0.000781754, Active=4, Evidence=-4277.23
+Converged based on error stability
+ITERATION 47 
+Iter 100: Error=7409.7, Delta=1.953e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 48 
+Iter 100: Error=7409.9, Delta=8.00179e-05, Active=4, Evidence=-4277.59
+Converged based on error stability
+ITERATION 49 
+Iter 100: Error=7409.51, Delta=0.000232836, Active=4, Evidence=-4277.45
+Converged based on error stability
+ITERATION 50 
+Iter 100: Error=7410.22, Delta=4.58891e-05, Active=4, Evidence=-4277.58
+Converged based on error stability
+ITERATION 51 
+Iter 100: Error=6601.23, Delta=0.000176813, Active=5, Evidence=-3968.94
+Iter 200: Error=6605.18, Delta=5.15136e-05, Active=5, Evidence=-3969.37
+Converged based on error stability
+ITERATION 52 
+Iter 100: Error=7410.09, Delta=4.02685e-05, Active=4, Evidence=-4277.59
+Converged based on error stability
+ITERATION 53 
+Iter 100: Error=7412.78, Delta=0.000139396, Active=4, Evidence=-4276.73
+Iter 200: Error=7410.09, Delta=7.90108e-06, Active=4, Evidence=-4277.58
+Converged based on error stability
+ITERATION 54 
+Iter 100: Error=7660.97, Delta=4.84271e-05, Active=4, Evidence=-4181.36
+Converged based on error stability
+ITERATION 55 
+Iter 100: Error=7409.22, Delta=0.000356187, Active=4, Evidence=-4277.5
+Converged based on error stability
+ITERATION 56 
+Iter 100: Error=7410.17, Delta=3.97039e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 57 
+Iter 100: Error=7409.64, Delta=0.000115249, Active=4, Evidence=-4277.56
+Converged based on error stability
+ITERATION 58 
+Iter 100: Error=7668.11, Delta=0.000543966, Active=4, Evidence=-4179.73
+Iter 200: Error=7664.73, Delta=1.87318e-05, Active=4, Evidence=-4180.84
+Converged based on error stability
+ITERATION 59 
+Iter 100: Error=7410.42, Delta=2.8655e-05, Active=4, Evidence=-4277.55
+Converged based on error stability
+ITERATION 60 
+Iter 100: Error=6602.96, Delta=0.000362912, Active=5, Evidence=-3963.67
+Iter 200: Error=6602.19, Delta=0.000107513, Active=5, Evidence=-3968.72
+Iter 300: Error=6603.96, Delta=1.33261e-05, Active=5, Evidence=-3969.08
+Converged based on error stability
+ITERATION 61 
+Iter 100: Error=7410.23, Delta=4.09231e-05, Active=4, Evidence=-4277.62
+Converged based on error stability
+ITERATION 62 
+Iter 100: Error=6603.52, Delta=0.000170638, Active=5, Evidence=-3968.78
+Iter 200: Error=6604.92, Delta=8.18996e-05, Active=5, Evidence=-3969.29
+Converged based on error stability
+ITERATION 63 
+Iter 100: Error=6604.09, Delta=0.000179629, Active=5, Evidence=-3969.26
+Converged based on error stability
+ITERATION 64 
+Iter 100: Error=7410.17, Delta=2.40818e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 65 
+Iter 100: Error=6601.86, Delta=0.000360149, Active=5, Evidence=-3968.68
+Converged based on error stability
+ITERATION 66 
+Iter 100: Error=7667.69, Delta=0.000675582, Active=4, Evidence=-4176.35
+Iter 200: Error=7663.74, Delta=4.74443e-05, Active=4, Evidence=-4180.75
+Converged based on error stability
+ITERATION 67 
+Iter 100: Error=7410.23, Delta=1.80729e-05, Active=4, Evidence=-4277.63
+Converged based on error stability
+ITERATION 68 
+Iter 100: Error=6601.74, Delta=0.000351675, Active=5, Evidence=-3967.29
+Iter 200: Error=6604.69, Delta=0.000111544, Active=5, Evidence=-3969.02
+Converged based on error stability
+ITERATION 69 
+Iter 100: Error=7409.91, Delta=3.90306e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 70 
+Iter 100: Error=7410.1, Delta=5.33086e-05, Active=4, Evidence=-4277.55
+Converged based on error stability
+ITERATION 71 
+Iter 100: Error=6604.22, Delta=0.000600467, Active=5, Evidence=-3966.9
+Converged based on error stability
+ITERATION 72 
+Iter 100: Error=7409.63, Delta=1.27346e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 73 
+Iter 100: Error=6602.89, Delta=0.000561227, Active=5, Evidence=-3968.98
+Iter 200: Error=6605.69, Delta=2.95007e-05, Active=5, Evidence=-3969.37
+Converged based on error stability
+ITERATION 74 
+Iter 100: Error=6602.91, Delta=0.000216984, Active=5, Evidence=-3968.83
+Iter 200: Error=6605.43, Delta=2.0821e-05, Active=5, Evidence=-3969.32
+Converged based on error stability
+ITERATION 75 
+Iter 100: Error=6606.14, Delta=0.000467838, Active=5, Evidence=-3967.84
+Iter 200: Error=6606.11, Delta=2.86392e-05, Active=5, Evidence=-3969.13
+Converged based on error stability
+ITERATION 76 
+Iter 100: Error=7409.58, Delta=1.19701e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 77 
+Iter 100: Error=7409.69, Delta=4.01874e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 78 
+Iter 100: Error=7409.65, Delta=0.000143872, Active=4, Evidence=-4277.54
+Converged based on error stability
+ITERATION 79 
+Iter 100: Error=7409.86, Delta=8.61109e-05, Active=4, Evidence=-4277.56
+Converged based on error stability
+ITERATION 80 
+Iter 100: Error=7410.46, Delta=8.53969e-05, Active=4, Evidence=-4277.39
+Converged based on error stability
+ITERATION 81 
+Iter 100: Error=7410.67, Delta=7.36048e-05, Active=4, Evidence=-4277.54
+Converged based on error stability
+ITERATION 82 
+Iter 100: Error=6601.39, Delta=0.000360371, Active=5, Evidence=-3968.91
+Iter 200: Error=6605.5, Delta=2.18099e-05, Active=5, Evidence=-3969.38
+Converged based on error stability
+ITERATION 83 
+Iter 100: Error=7410.22, Delta=3.54811e-05, Active=4, Evidence=-4277.62
+Converged based on error stability
+ITERATION 84 
+Iter 100: Error=7410.14, Delta=0.000102395, Active=4, Evidence=-4277.51
+Converged based on error stability
+ITERATION 85 
+Iter 100: Error=7410.11, Delta=6.76128e-05, Active=4, Evidence=-4277.59
+Converged based on error stability
+ITERATION 86 
+Iter 100: Error=7409.54, Delta=3.68294e-05, Active=4, Evidence=-4277.56
+Converged based on error stability
+ITERATION 87 
+Iter 100: Error=7410.16, Delta=2.75788e-05, Active=4, Evidence=-4277.6
+Converged based on error stability
+ITERATION 88 
+Iter 100: Error=6605.01, Delta=0.000114242, Active=5, Evidence=-3969.3
+Converged based on error stability
+ITERATION 89 
+Iter 100: Error=7410.3, Delta=2.2584e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 90 
+Iter 100: Error=7410.27, Delta=2.22195e-05, Active=4, Evidence=-4277.63
+Converged based on error stability
+ITERATION 91 
+Iter 100: Error=7410.48, Delta=2.37617e-05, Active=4, Evidence=-4277.57
+Converged based on error stability
+ITERATION 92 
+Iter 100: Error=7401.33, Delta=0.000502647, Active=4, Evidence=-4274.56
+Iter 200: Error=7410.14, Delta=1.04585e-05, Active=4, Evidence=-4277.61
+Converged based on error stability
+ITERATION 93 
+Iter 100: Error=7410.5, Delta=4.532e-05, Active=4, Evidence=-4277.5
+Converged based on error stability
+ITERATION 94 
+Iter 100: Error=7664.51, Delta=6.83035e-05, Active=4, Evidence=-4181.15
+Iter 200: Error=7662.17, Delta=5.6523e-05, Active=4, Evidence=-4181.38
+Converged based on error stability
+ITERATION 95 
+Iter 100: Error=6605.69, Delta=3.36711e-05, Active=5, Evidence=-3969.34
+Converged based on error stability
+ITERATION 96 
+Iter 100: Error=7415.46, Delta=0.000534817, Active=4, Evidence=-4275.43
+Iter 200: Error=7409.79, Delta=6.81829e-06, Active=4, Evidence=-4276.91
+Converged based on error stability
+ITERATION 97 
+Iter 100: Error=7409.54, Delta=0.000126116, Active=4, Evidence=-4277.59
+Converged based on error stability
+ITERATION 98 
+Iter 100: Error=6597.66, Delta=0.000206809, Active=5, Evidence=-3964.77
+Iter 200: Error=6605.05, Delta=2.22481e-05, Active=5, Evidence=-3969.26
+Converged based on error stability
+ITERATION 99 
+Iter 100: Error=7403.37, Delta=0.00126173, Active=4, Evidence=-4276.13
+Converged based on error stability
+ITERATION 100 
+Iter 100: Error=6596.54, Delta=0.00133994, Active=5, Evidence=-3965.76
+Iter 200: Error=6604.19, Delta=5.68943e-05, Active=5, Evidence=-3969.21
+Converged based on error stability
+bNMF runtime:0.276354662577311
+Warning in dir.create(file.path(dir_save)) :
+  '/BiO2/home/daniel/udler2018_bnmf/udler2018_eur_v2_results' already exists
+[1] "Summarizing bNMF results..."
+[1] "Writing table of chosen K across iterations..."
+[1] "Plotting variant and trait contributions..."
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+
+---- 최종 요약 ----
+  변이 경로    : pruned 94 -> df_final 94 -> GWAS align 77 -> bNMF 77
+  최종 z 행렬  : 77 SNPs x 31 traits (feature 62)
+  결과 폴더    : /BiO2/home/daniel/udler2018_bnmf/udler2018_eur_v2_results
+  총 소요      : 3.8 분
+  ARD K 분포   : K=3:3  K=4:70  K=5:27
+
+=== run_v2.R 완료 2026-09-09 17:28:47 ===

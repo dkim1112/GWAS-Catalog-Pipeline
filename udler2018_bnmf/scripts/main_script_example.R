@@ -4,12 +4,14 @@
 # 이 파일은 gwas-partitioning/bnmf-clustering 저장소의 main_script_example.R
 # (2026-06-22 commit dbc2ee1) 사본을 Udler 2018 재현용으로 로컬 수정한 것.
 #
-# 원본 대비 변경 (RUN_GUIDE.md 참조):
+# 원본 대비 변경 (docs/RUN.md 참조):
 #   (가) 47행 파일 헤더 — 이 프로젝트용 설명으로 교체
 #   (나) 52행 version — "udler2018_eur_v1"
 #   (다) 57행 gwas_file — "manifest.xlsx"
 #   (라) 60행 scripts_dir — file.path(working_dir, "scripts")
-#   (마) 79행 my_rsid_map_dir — file.path(working_dir, "rsid_maps_by_chr")
+#   (마) my_rsid_map_dir — file.path(working_dir, "data", "rsid_maps_by_chr")
+#   (마-2) hg19_to_hg38_chain_file — refs/ 밑으로 이동
+#   (마-3) main_dir / df_save — results/<version>/ 밑으로 모음 (원본은 루트에 흩뿌림)
 #   (바) 193행 my_pops — c("EUR") (원본은 c("EUR","EAS","AFR","AMR","SAS"))
 #        * 원본 README는 "T2D Multi-ancestry"라 5개 pop 전부에서 독립인 변이만
 #          살리는 default. EUR 재현엔 EUR 하나만 남겨야 함.
@@ -19,8 +21,8 @@
 #          `object 'z_n_mats' not found`로 죽음.
 #   (아) 452행 choose_proxies(population="EUR") — 원본 그대로 (EUR 재현에 부합)
 #
-# 실행 전 준비: RUN_GUIDE.md 의 2-3~2-5 (데이터 파일, R 패키지, LDLINK_TOKEN).
-# 실행 방식: R 인터랙티브에서 절 단위로 나눠 실행. 통째로 source() 하지 말 것.
+# 실행 전 준비: docs/SETUP.md (데이터 파일, R 패키지, LDLINK_TOKEN).
+# 실행 방식: 루트에서 `Rscript run_pipeline.R`. 직접 절 단위로 돌릴 때는 docs/RUN.md 참조.
 #           3절 LD pruning이 몇 시간 걸림 → screen/tmux 안에서.
 # =============================================================================
 #
@@ -56,8 +58,10 @@ library(ggplot2)
 # 서버: setwd("/nfs/das2/<본인폴더>/udler2018_bnmf") 로 명시하는 편이 안전.
 working_dir <- getwd()
 
-# Pipeline version label (used for output directory and checkpoint filenames)
-version <- "udler2018_eur_v1"
+# Pipeline version label. 결과와 체크포인트가 results/<version>/ 으로 분리된다.
+# v1 (35 trait) -> v2 (44 trait: CHARGE 지방산 5개 + GLGC 지질 4개 추가).
+# v1 결과는 results/udler2018_eur_v1/ 에 보존되어 있다 (대조용).
+version <- "udler2018_eur_v2"
 
 # Path to the GWAS manifest Excel file
 gwas_file <- file.path(working_dir, "manifest.xlsx")
@@ -83,7 +87,7 @@ PROXY_WINDOW_KB   <- 500
 # Directory containing per-chromosome rsID→position map files (used by choose_proxies)
 # Each file should be named chr{N}.txt with columns: hg19_posID, rsID, ref_allele, alt_allele
 # build_rsid_map.py 가 생성하는 폴더 (dbSNP b151 GRCh37 common set 기반).
-my_rsid_map_dir <- file.path(working_dir, "rsid_maps_by_chr")
+my_rsid_map_dir <- file.path(working_dir, "data", "rsid_maps_by_chr")
 
 # Column rename map for your primary GWAS summary stats file (if column names differ from
 # the pipeline defaults: P_VALUE, BETA, SE, ODDS_RATIO). Set to NULL if no renaming needed.
@@ -92,7 +96,7 @@ rename_cols <- NULL
 
 # Path to hg19→hg38 liftover chain file (required for post-hoc analysis and TOPMed audit)
 # Download from: https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/
-hg19_to_hg38_chain_file <- file.path(working_dir, "hg19ToHg38.over.chain")
+hg19_to_hg38_chain_file <- file.path(working_dir, "refs", "hg19ToHg38.over.chain")
 
 # TOPMed presence filter (optional)
 # When TRUE, variants not found in TOPMed are flagged for proxy replacement, and all
@@ -107,13 +111,15 @@ bravo_dir         <- "/humgen/florezlab/users/ksmith/BRAVO"
 
 setwd(working_dir)
 
-# Derived output paths
-main_dir      <- file.path(working_dir, paste0(version, "_results"))
-main_dir_shrt <- basename(main_dir)
-dir.create(main_dir, recursive = TRUE)
+# Derived output paths — 한 실행의 산출물은 전부 results/<version>/ 안에 모인다.
+main_dir      <- file.path(working_dir, "results", version)
+# main_dir_shrt: working_dir 기준 상대경로. 아래 write_* 호출들이 이 값을 상대경로로
+# 쓰기 때문에 basename() 이면 안 된다 (결과 폴더가 한 단계 깊어졌으므로).
+main_dir_shrt <- file.path("results", version)
+dir.create(main_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Checkpoint file for saving R workspace between steps
-df_save <- sprintf("my_workspace_%s.RData", version)
+df_save <- file.path(main_dir, sprintf("my_workspace_%s.RData", version))
 
 # Uncomment to resume from a saved checkpoint:
 # load(df_save)
@@ -901,6 +907,6 @@ ggplot(df_plot, aes(x = col_id, y = -row_group, fill = category, label = display
   coord_fixed(ratio = 0.5)   # adjust ratio so text fits nicely
 
 # Optional: save as high-res image
-ggsave("traits_grid_colored.png", width = 20, height = 16, dpi = 300)
+ggsave(file.path(main_dir, "traits_grid_colored.png"), width = 20, height = 16, dpi = 300)
 
 

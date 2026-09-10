@@ -1,0 +1,39 @@
+# ==============================================================================
+# 커밋하지 않는 것 = "재생성 가능하거나, 너무 크거나, 개인 환경인 것"
+# 원칙: 스크립트·문서·매니페스트·정답지·결과 요약은 넣고, 원본 데이터는 안 넣는다.
+# ==============================================================================
+
+# --- 대용량 입력 데이터 (약 8 GB). docs/SETUP.md 의 절차로 재생성한다 ---
+data/
+
+# --- R 워크스페이스 체크포인트 (64~79 MB, GitHub 경고선 초과) ---
+# 파이프라인을 다시 돌리면 만들어진다. 결과 요약(L2EU.*.txt, *.pdf)은 커밋함.
+*.RData
+*.rdata
+
+# --- R 개인 환경 ---
+.Rhistory
+.Rapp.history
+.Rproj.user/
+*.Rproj
+.Renviron
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- 파이프라인이 루트에 흘리는 임시 파일 ---
+# 스크립트를 고쳐 tempdir / results 로 보냈지만, 외부 도구(LDlinkR, topLD)가
+# 여전히 cwd 에 쓸 수 있어 루트에서만 막는다.
+# results/<version>/proxy_diagnostics/ 안의 같은 이름 파일은 근거 자료라 커밋함.
+*.tmp
+/outputLD*.txt
+/outputInfo*.txt
+/combined_query_snp_list_*.txt
+/snpClip_results*
+
+# --- OS ---
+.DS_Store
+Thumbs.db

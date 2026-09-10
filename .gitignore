@@ -3,10 +3,5 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# udler2018_bnmf: 대용량 산출물 (스크립트로 재생성 가능)
-udler2018_bnmf/sumstats/
-udler2018_bnmf/sumstats_converted/
-udler2018_bnmf/rsid_maps_by_chr/
-udler2018_bnmf/_vcf_tmp/
-udler2018_bnmf/_rsid_map.sqlite
-udler2018_bnmf/*.RData
+# udler2018_bnmf/ 의 대용량 제외 규칙은 그 폴더의 .gitignore 가 갖고 있다
+# (폴더만 떼어내도 규칙이 따라가도록).
